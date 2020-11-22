@@ -1,11 +1,9 @@
-#Akademia Górniczo-Hutnicza
+# Akademia Górniczo-Hutnicza
 
-#WIEiT : Informatyka : 3 semestr
-#2020-2021
-#PODSTAWY BAZ DANYCH
+### WIEiT : Informatyka : 3 semestr
+## 2020-2021
+### PODSTAWY BAZ DANYCH
 
-#Dokumentacja projektu
+# *Dokumentacja projektu*
 
-
-##System wspomagania działalności firmy świadczącej usługi gastronomiczne
-#COVID-19 edition
+# System wspomagania działalności firmy świadczącej usługi gastronomiczne,  _COVID-19 edition_
