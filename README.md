@@ -1,9 +1,12 @@
-# Akademia Górniczo-Hutnicza
+# <div align="center">Akademia Górniczo-Hutnicza </div>
 
-### WIEiT : Informatyka : 3 semestr
-## 2020-2021
-### PODSTAWY BAZ DANYCH
+### <div align="center"> WIEiT : Informatyka : 3 semestr </div>
+## <div align="center"> 2020-2021 </div>
+### <div align="center"> PODSTAWY BAZ DANYCH </div>
 
-# *Dokumentacja projektu*
+# <div align="center"> *Dokumentacja projektu* </div>
 
-# System wspomagania działalności firmy świadczącej usługi gastronomiczne,  _COVID-19 edition_
+# <div align="center"> System wspomagania działalności firmy świadczącej usługi gastronomiczne,  _COVID-19 edition_ </div>
+
+
+###### <div align="center"> AGATA CYRA </div>
