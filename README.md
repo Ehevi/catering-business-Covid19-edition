@@ -57,12 +57,17 @@
 :memo: istnieje możliwość wcześniejszej rezerwacji stolika dla *co najmniej dwóch osób*
 
 :memo: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
+
 a) minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
+
 b) zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
+
 c) jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
 
 :memo: rezerwujący otrzymuje potwierdzenie zamówienia po akceptacji przez obsługę
 
 :memo: rezerwacja przez firmy:
+
 a) rezerwacja stolików *na firmę*
+
 b) rezerwacja stolików *dla konkretnych pracowników* (imiennie)
