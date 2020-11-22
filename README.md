@@ -71,3 +71,25 @@ c) jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
 a) rezerwacja stolików *na firmę*
 
 b) rezerwacja stolików *dla konkretnych pracowników* (imiennie)
+
+### Rabaty
+a) programy rabatowe dla klientów indywidualnych:
+
+- Po realizacji ustalonej liczby zamówień Z1 (np. Z1=10) za co najmniej określoną kwotę K1 (np. K1=30 zł każde zamówienie): R1%(np. R1=3%) zniżki na wszystkie zamówienia.
+
+- Po realizacji kolejnych Z1 (np. Z1=10) zamówień za co najmniej określoną kwotę K1 (np. K1=20 zł) każde: dodatkowe R1% zniżki na wszystkie zamówienia (np. R1=3%)
+
+- Po realizacji zamówień za łączną kwotę K2 (np. 1000 zł): jednorazowa zniżka R2% (np. 5%) na zamówienia złożone przez D1 (np. D1=7) dni, począwszy od dnia przyznania zniżki
+
+- Po realizacji zamówień za łączną kwotę K3 (np. K3=5000 zł): jednorazowa zniżka R3% (np. R3=5%) na zamówienie złożone przez D2 (np. D2=7) dni, począwszy od dnia przyznania zniżki
+
+b) zasady udzielania rabatów dla firm:
+
+- Za każdy kolejny miesiąc, w którym dokonano co najmniej FZ zamówień (np. FZ=5) za łączną kwotę co najmniej FK1 (np. FK1=500 zł): rabat FR1% (np. FR1=0,1%). W przypadku braku ciągłości w zamówieniach rabat zeruje się. Łączny, maksymalny rabat to FM% (np. FM=4%).
+
+- Za każdy kolejny kwartał, w którym dokonano zamówień za łączną kwotę FK2 (np. FK2=10.000 zł): rabat kwotowy równyt FR2% (np. FR2=5%) z łącznej kwoty, z którą zrealizowano zamówienie.
+
+### Raporty
+Generowanie raportów miesięcznych i tygodniowych
+dotyczących: -rezerwacji stolików, -rabatów, -menu, -statystyk zamównienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
+Generowanie "raportów" (faktury/paragonu) dotyczących zamówień + rabatów dla klientów indywidualnych oraz firm.
