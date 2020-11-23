@@ -113,21 +113,21 @@
 
 :memo: istnieje możliwość wcześniejszej rezerwacji stolika dla *co najmniej dwóch osób*
 
-:warning: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
+##### :warning: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
 
-a) minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
+###### minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
 
-b) zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
+###### zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
 
-c) jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
+###### jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
 
 :ticket: rezerwujący otrzymuje potwierdzenie zamówienia po akceptacji przez obsługę
 
-:book: rezerwacja przez firmy:
+##### :book: rezerwacja przez firmy:
 
-a) rezerwacja stolików *na firmę*
+###### rezerwacja stolików *na firmę*
 
-b) rezerwacja stolików *dla konkretnych pracowników* (imiennie)
+###### rezerwacja stolików *dla konkretnych pracowników* (imiennie)
 
 ### Rabaty
 a) programy rabatowe dla klientów indywidualnych:
