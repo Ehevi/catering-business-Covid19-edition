@@ -99,11 +99,11 @@
 
 ### Menu
 
-:memo: ustalane jest z co najmniej dziennym wyprzedzeniem
+:pencil2: ustalane jest z co najmniej dziennym wyprzedzeniem
 
-:memo: co najmniej połowa pozycji menu jest zmieniana co najmniej raz na dwa tygodnie
+:calendar: co najmniej połowa pozycji menu jest zmieniana co najmniej raz na dwa tygodnie
 
-:memo: pozycja zdjęta z menu nie może powtórzyć się wcześniej niż za miesiąc
+:recycle: pozycja zdjęta z menu nie może powtórzyć się wcześniej niż za miesiąc
 
 :sushi: w dniach czwartek-piątek-sobota istnieje możliwość wcześniejszego zamówienia dań zawierających owoce morza - z uwagi na indywidualny transport takie zamówienie powinno byc złożone *najpóźniej w poniedziałek poprzedzający zamówienie*
 
@@ -113,7 +113,7 @@
 
 :memo: istnieje możliwość wcześniejszej rezerwacji stolika dla *co najmniej dwóch osób*
 
-:memo: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
+:warning: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
 
 a) minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
 
@@ -121,9 +121,9 @@ b) zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
 
 c) jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
 
-:memo: rezerwujący otrzymuje potwierdzenie zamówienia po akceptacji przez obsługę
+:ticket: rezerwujący otrzymuje potwierdzenie zamówienia po akceptacji przez obsługę
 
-:memo: rezerwacja przez firmy:
+:book: rezerwacja przez firmy:
 
 a) rezerwacja stolików *na firmę*
 
@@ -149,13 +149,13 @@ b) zasady udzielania rabatów dla firm:
 ### Raporty :chart_with_upwards_trend:
 Generowanie raportów *miesięcznych* i *tygodniowych* dotyczących:
 
-- rezerwacji stolików,
+:mag: rezerwacji stolików,
 
-- rabatów, 
+:mag: rabatów, 
 
-- menu,
+:mag: menu,
 
-- statystyk zamównienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
+:mag: statystyk zamównienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
 
 Generowanie "raportów" (faktury/paragonu) dotyczących zamówień + rabatów dla klientów indywidualnych oraz firm.
 
