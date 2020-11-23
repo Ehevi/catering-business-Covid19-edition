@@ -85,15 +85,15 @@
 ## 2. Informacje szczegółowe
 ### Oferta
 
-:memo: w ofercie jest żywność (np. ciastka, lunch, drobne przekąski) oraz napoje bezalkoholowe (np. kawa, koktajle, woda)
+:ice_cream: w ofercie jest żywność (np. ciastka, lunch, drobne przekąski) oraz napoje bezalkoholowe (np. kawa, koktajle, woda)
 
-:memo: usługi świadczone są na miejscu oraz na wynos
+:package: usługi świadczone są na miejscu oraz na wynos
 
 :memo: sposoby składania zamówień: w lokalu | za pośrednictwem formularza WWW (wybór preferowanej daty i godziny odbioru zamówienia)
 
 ### Ograniczenia
 
-:memo: firma dysponuje ograniczoną liczbą stolików, w tym miejsc siedzących
+:door: firma dysponuje ograniczoną liczbą stolików, w tym miejsc siedzących
 
 :mask: zmieniające się ograniczenia związane z Covid-19: w poszczególnych dniach może być dostępna ograniczona liczba miejsc (w odniesieniu do powierzchni lokalu), zmienna w czasie
 
@@ -111,7 +111,7 @@
 
 ### Rezerwacje
 
-:memo: istnieje możliwość wcześniejszej rezerwacji stolika dla *co najmniej dwóch osób*
+:dolls: istnieje możliwość wcześniejszej rezerwacji stolika dla *co najmniej dwóch osób*
 
 ##### :warning: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
 
@@ -131,7 +131,7 @@
 
 
 ### Rabaty
-a) programy rabatowe dla klientów indywidualnych:
+#### a) programy rabatowe dla klientów indywidualnych:
 
 - Po realizacji ustalonej liczby zamówień Z1 (np. Z1=10) za co najmniej określoną kwotę K1 (np. K1=30 zł każde zamówienie): R1%(np. R1=3%) zniżki na wszystkie zamówienia.
 
@@ -141,7 +141,7 @@ a) programy rabatowe dla klientów indywidualnych:
 
 - Po realizacji zamówień za łączną kwotę K3 (np. K3=5000 zł): jednorazowa zniżka R3% (np. R3=5%) na zamówienie złożone przez D2 (np. D2=7) dni, począwszy od dnia przyznania zniżki
 
-b) zasady udzielania rabatów dla firm:
+#### b) zasady udzielania rabatów dla firm:
 
 - Za każdy kolejny miesiąc, w którym dokonano co najmniej FZ zamówień (np. FZ=5) za łączną kwotę co najmniej FK1 (np. FK1=500 zł): rabat FR1% (np. FR1=0,1%). W przypadku braku ciągłości w zamówieniach rabat zeruje się. Łączny, maksymalny rabat to FM% (np. FM=4%).
 
