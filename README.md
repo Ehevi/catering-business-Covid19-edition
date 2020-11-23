@@ -115,19 +115,20 @@
 
 ##### :warning: aby dokonać rezerwacji należy spełnić co najmniej jeden z warunków:
 
-###### minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
+###### a) minimalna wartość zamówienia składanego przy rezerwacji: 50 zł
 
-###### zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
+###### b) zapis w historii potwierdzający dokonanie min. 5 wcześniejszych zamówień
 
-###### jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
+###### c) jeżeli mniej niż 5 wcześniejszych zamówień: na kwotę min. 200 zł
 
 :ticket: rezerwujący otrzymuje potwierdzenie zamówienia po akceptacji przez obsługę
 
 ##### :book: rezerwacja przez firmy:
 
-###### rezerwacja stolików *na firmę*
+###### a) rezerwacja stolików *na firmę*
 
-###### rezerwacja stolików *dla konkretnych pracowników* (imiennie)
+###### b) rezerwacja stolików *dla konkretnych pracowników* (imiennie)
+
 
 ### Rabaty
 a) programy rabatowe dla klientów indywidualnych:
