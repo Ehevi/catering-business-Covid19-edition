@@ -9,7 +9,7 @@
 # <div align="center"> System wspomagania działalności firmy świadczącej usługi gastronomiczne,  _COVID-19 edition_ </div>
 
 
-###### <div align="center"> :copyright: AGATA CYRA </div>
+###### <div align="center"> https://docs.google.com/document/d/1KAs1Gj8Wqo7U5ITfNpL3cS3h_su1uthEJFQJPGGBnns/edit?usp=sharing </div>
 
 # 1. Analiza wymagań systemu
 ## 1. Role w systemie:
