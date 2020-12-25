@@ -1,5 +1,5 @@
 # Opisy tabel
-[Address](tableDescriptions.md#address) | [Categories] (tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies_Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
+[Address](tableDescriptions.md#address) | [Cities](tableDescriptions.md#cities) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies_Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
 --- | --- | --- | --- | --- | --- |
 [Customers_Discounts](tableDescriptions.md#customers_discounts) | [Discount_Data](tableDescriptions.md#discount_data) | [Discount_Data_In_Programs](tableDescriptions.md#dicount_data_in_programs) | [Employees](tableDescriptions.md#employees) | [Individual](tableDescriptions.md#individual) | [Menu](tableDescriptions.md#menu) |
 [Menu_Details](tableDescriptions.md#menu_details) | [Menu_Items](tableDescriptions.md#menu_items) | [Order_Details](tableDescriptions.md#order_details) | [Orders](tableDescriptions.md#orders) | [Person](tableDescriptions.md#person) | [Programs](tableDescriptions.md#programs) |
