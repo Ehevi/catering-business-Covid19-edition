@@ -42,7 +42,7 @@ ALTER TABLE [dbo].[address]
 CHECK CONSTRAINT [FK_address_cities]
 GO
 ```
-[powrót na górę](tableDescriptions.md#opisy-tabel)
+[:arrow_double_up:](tableDescriptions.md)
 
 ### CATEGORIES
 Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _owoce morza_)
@@ -71,6 +71,7 @@ CREATE TABLE [dbo].[categories](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### CITIES
 Tabela przechowująca dane o miastach znajdujących się w bazie danych
@@ -110,6 +111,7 @@ ALTER TABLE [dbo].[cities]
 CHECK CONSTRAINT [FK_cities_countries]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### COMPANIES
 Tabela przechowująca dane o klientach firmowych.
@@ -184,6 +186,7 @@ ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [FK_companies_customers]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### COMPANIES_EMPLOYEES
 Tabela zawierająca informacje o pracownikach klientów firmowych.
@@ -233,6 +236,7 @@ ALTER TABLE [dbo].[companies_employees]
 CHECK CONSTRAINT [FK_companies_employees_person]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### COUNRIES
 Słownik państw występujących w adresach osobowych i firmowych.
@@ -261,6 +265,7 @@ CREATE TABLE [dbo].[countries](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### CUSTOMERS
 Tabela przechowująca ID klientów
@@ -288,6 +293,7 @@ CREATE TABLE [dbo].[customers](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### CUSTOMERS_DICSOUNTS
 Tabela przechowująca dane o programach rabatowych poszczególnych klientów
@@ -338,6 +344,7 @@ ALTER TABLE [dbo].[customers_discounts]
 CHECK CONSTRAINT [FK_customers_discounts_programs]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### DISCOUNT_DATA
 Tabela przechowująca dane dotyczące zmiennych występujących jako wartości liczbowe w poszczególnych programach rabatowych.
@@ -367,6 +374,7 @@ CREATE TABLE [dbo].[discount_data](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### DISCOUNT_DATA_IN_PROGRAMS
 Tabela przechowująca informacje o tym, jakie zmienne są przyporządkowane do poszczególnych programów rabatowych.
@@ -416,6 +424,7 @@ ALTER TABLE [dbo].[discount_data_in_programs]
 CHECK CONSTRAINT [FK_discount_data_in_programs_programs]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### EMPLOYEES
 Tabela wskazująca na dane osób pracujących w usługach gastronomicznych.
@@ -443,6 +452,7 @@ CREATE TABLE [dbo].[employees](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### INDIVIDUAL
 Tabela przechowująca dane o klientach indywidualnych
@@ -510,6 +520,7 @@ ALTER TABLE [dbo].[individual]
 CHECK CONSTRAINT [FK_individual_person]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### MENU
 Tabela przechowująca dane o menu
@@ -539,6 +550,7 @@ CREATE TABLE [dbo].[menu](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md)
 
 ### MENU_DETAILS
 Tabela przechowująca informacje szczegółowe dotyczące poszczególnych menu.
