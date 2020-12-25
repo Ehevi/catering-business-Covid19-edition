@@ -1,10 +1,12 @@
 # Opisy tabel
+
 [Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies Employees](tableDescriptions.md#companies_employees) |
---- | --- | --- | --- | --- |
+:---: | :---: | :---: | :---: | :---: |
 [**Countries**](tableDescriptions.md#countries) | [**Customers**](tableDescriptions.md#customers) | [**Customers Discounts**](tableDescriptions.md#customers_discounts) | [**Discount Data**](tableDescriptions.md#discount_data) | [**Discount Data In Programs**](tableDescriptions.md#dicount_data_in_programs) |
 [**Employees**](tableDescriptions.md#employees) | [**Individual**](tableDescriptions.md#individual) | [**Menu**](tableDescriptions.md#menu) | [**Menu Details**](tableDescriptions.md#menu_details) | [**Menu Items**](tableDescriptions.md#menu_items) |
 [**Order Details**](tableDescriptions.md#order_details) | [**Orders**](tableDescriptions.md#orders) | [**Person**](tableDescriptions.md#person) | [**Programs**](tableDescriptions.md#programs) | [**Reservable Tables**](tableDescriptions.md#reservable_tables) |
 [**Reservations**](tableDescriptions.md#reservations) | [**Reservations Collector**](tableDescriptions.md#reservations_collector) | [**Reservations Orders**](tableDescriptions.md#reservations_orders) | [**Status Dictionary**](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
+	
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych
 ```sql
@@ -947,7 +949,8 @@ WITH CHECK ADD
 	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
-ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [FK_reservations_customers]
+ALTER TABLE [dbo].[reservations]
+CHECK CONSTRAINT [FK_reservations_customers]
 GO
 
 ALTER TABLE [dbo].[reservations]
@@ -956,13 +959,17 @@ WITH CHECK ADD
 	REFERENCES [dbo].[reservable_tables] ([res_table_id])
 GO
 
-ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [FK_reservations_reservable_tables]
+ALTER TABLE [dbo].[reservations]
+CHECK CONSTRAINT [FK_reservations_reservable_tables]
 GO
 
-ALTER TABLE [dbo].[reservations]  WITH CHECK ADD  CONSTRAINT [CK_reservations] CHECK  (([date_start_time]<[date_endtime]))
+ALTER TABLE [dbo].[reservations]
+WITH CHECK ADD
+	CONSTRAINT [CK_reservations] CHECK  (([date_start_time]<[date_endtime]))
 GO
 
-ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [CK_reservations]
+ALTER TABLE [dbo].[reservations]
+CHECK CONSTRAINT [CK_reservations]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -1051,7 +1058,8 @@ WITH CHECK ADD
 	REFERENCES [dbo].[orders] ([order_id])
 GO
 
-ALTER TABLE [dbo].[reservations_orders] CHECK CONSTRAINT [FK_reservations_orders_orders]
+ALTER TABLE [dbo].[reservations_orders]
+CHECK CONSTRAINT [FK_reservations_orders_orders]
 GO
 
 ALTER TABLE [dbo].[reservations_orders]
