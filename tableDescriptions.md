@@ -1,9 +1,9 @@
 # Opisy tabel
 [Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies_Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
 --- | --- | --- | --- | --- | --- |
-[Customers_Discounts](tableDescriptions.md#customers_discounts) | [Discount_Data](tableDescriptions.md#discount_data) | [Discount_Data_In_Programs](tableDescriptions.md#dicount_data_in_programs) | [Employees](tableDescriptions.md#employees) | [Individual](tableDescriptions.md#individual) | [Menu](tableDescriptions.md#menu) |
+[**Customers_Discounts**](tableDescriptions.md#customers_discounts) | [Discount_Data](tableDescriptions.md#discount_data) | [Discount_Data_In_Programs](tableDescriptions.md#dicount_data_in_programs) | [Employees](tableDescriptions.md#employees) | [Individual](tableDescriptions.md#individual) | [Menu](tableDescriptions.md#menu) |
 [Menu_Details](tableDescriptions.md#menu_details) | [Menu_Items](tableDescriptions.md#menu_items) | [Order_Details](tableDescriptions.md#order_details) | [Orders](tableDescriptions.md#orders) | [Person](tableDescriptions.md#person) | [Programs](tableDescriptions.md#programs) |
-[Reservable_Tables](tableDescriptions.md#reservable_tables) | [Reservations](tableDescriptions.md#reservations) | [Reservations_Collector](tableDescriptions.md#reservations_collector) | [Reservations_Orders](tableDescriptions.md#reservations_orders) | [Status_Dictionary](tableDescriptions.md#status_dictionary) | [Tables](tableDescriptions.md#tables) |
+[Reservable_Tables](tableDescriptions.md#reservable_tables) | [Reservations](tableDescriptions.md#reservations) | [Reservations_Collector](tableDescriptions.md#reservations_collector) | [Reservations_Orders](tableDescriptions.md#reservations_orders) | [Status_Dictionary](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych
 ```sql
@@ -42,6 +42,7 @@ ALTER TABLE [dbo].[address]
 CHECK CONSTRAINT [FK_address_cities]
 GO
 ```
+[powrót na górę](tableDescriptions.md#opisy-tabel)
 
 ### CATEGORIES
 Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _owoce morza_)
