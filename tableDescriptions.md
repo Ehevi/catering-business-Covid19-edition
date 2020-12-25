@@ -1,5 +1,5 @@
 # Opisy tabel
-[Address](tableDescriptions.md), [Cities](tableDescriptions.md)
+[Address](tableDescriptions.md), [Cities](tableDescriptions.md#cities)
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych
 ```sql
