@@ -28,11 +28,14 @@ CREATE TABLE [dbo].[address](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[address]  WITH CHECK ADD  CONSTRAINT [FK_address_cities] FOREIGN KEY([city_id])
-REFERENCES [dbo].[cities] ([city_id])
+ALTER TABLE [dbo].[address]
+WITH CHECK ADD
+	CONSTRAINT [FK_address_cities] FOREIGN KEY([city_id])
+	REFERENCES [dbo].[cities] ([city_id])
 GO
 
-ALTER TABLE [dbo].[address] CHECK CONSTRAINT [FK_address_cities]
+ALTER TABLE [dbo].[address]
+CHECK CONSTRAINT [FK_address_cities]
 GO
 ```
 
@@ -94,11 +97,14 @@ CREATE TABLE [dbo].[cities](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[cities]  WITH CHECK ADD  CONSTRAINT [FK_cities_countries] FOREIGN KEY([country_id])
-REFERENCES [dbo].[countries] ([country_id])
+ALTER TABLE [dbo].[cities]
+WITH CHECK ADD
+	CONSTRAINT [FK_cities_countries] FOREIGN KEY([country_id])
+	REFERENCES [dbo].[countries] ([country_id])
 GO
 
-ALTER TABLE [dbo].[cities] CHECK CONSTRAINT [FK_cities_countries]
+ALTER TABLE [dbo].[cities]
+CHECK CONSTRAINT [FK_cities_countries]
 GO
 ```
 
@@ -156,18 +162,24 @@ CREATE TABLE [dbo].[companies](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[companies]  WITH CHECK ADD  CONSTRAINT [FK_companies_address] FOREIGN KEY([address_id])
-REFERENCES [dbo].[address] ([address_id])
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [FK_companies_address] FOREIGN KEY([address_id])
+	REFERENCES [dbo].[address] ([address_id])
 GO
 
-ALTER TABLE [dbo].[companies] CHECK CONSTRAINT [FK_companies_address]
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [FK_companies_address]
 GO
 
-ALTER TABLE [dbo].[companies]  WITH CHECK ADD  CONSTRAINT [FK_companies_customers] FOREIGN KEY([customer_id])
-REFERENCES [dbo].[customers] ([customer_id])
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [FK_companies_customers] FOREIGN KEY([customer_id])
+	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
-ALTER TABLE [dbo].[companies] CHECK CONSTRAINT [FK_companies_customers]
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [FK_companies_customers]
 GO
 ```
 
@@ -200,18 +212,24 @@ CREATE TABLE [dbo].[companies_employees](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[companies_employees]  WITH CHECK ADD  CONSTRAINT [FK_companies_employees_companies] FOREIGN KEY([company_id])
-REFERENCES [dbo].[companies] ([company_id])
+ALTER TABLE [dbo].[companies_employees]
+WITH CHECK ADD
+	CONSTRAINT [FK_companies_employees_companies] FOREIGN KEY([company_id])
+	REFERENCES [dbo].[companies] ([company_id])
 GO
 
-ALTER TABLE [dbo].[companies_employees] CHECK CONSTRAINT [FK_companies_employees_companies]
+ALTER TABLE [dbo].[companies_employees]
+CHECK CONSTRAINT [FK_companies_employees_companies]
 GO
 
-ALTER TABLE [dbo].[companies_employees]  WITH CHECK ADD  CONSTRAINT [FK_companies_employees_person] FOREIGN KEY([person_id])
-REFERENCES [dbo].[person] ([person_id])
+ALTER TABLE [dbo].[companies_employees]
+WITH CHECK ADD
+	CONSTRAINT [FK_companies_employees_person] FOREIGN KEY([person_id])
+	REFERENCES [dbo].[person] ([person_id])
 GO
 
-ALTER TABLE [dbo].[companies_employees] CHECK CONSTRAINT [FK_companies_employees_person]
+ALTER TABLE [dbo].[companies_employees]
+CHECK CONSTRAINT [FK_companies_employees_person]
 GO
 ```
 
@@ -302,18 +320,24 @@ CREATE TABLE [dbo].[customers_discounts](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[customers_discounts]  WITH CHECK ADD  CONSTRAINT [FK_customers_discounts_customers] FOREIGN KEY([customer_id])
-REFERENCES [dbo].[customers] ([customer_id])
+ALTER TABLE [dbo].[customers_discounts]
+WITH CHECK ADD
+	CONSTRAINT [FK_customers_discounts_customers] FOREIGN KEY([customer_id])
+	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
-ALTER TABLE [dbo].[customers_discounts] CHECK CONSTRAINT [FK_customers_discounts_customers]
+ALTER TABLE [dbo].[customers_discounts]
+CHECK CONSTRAINT [FK_customers_discounts_customers]
 GO
 
-ALTER TABLE [dbo].[customers_discounts]  WITH CHECK ADD  CONSTRAINT [FK_customers_discounts_programs] FOREIGN KEY([program_id])
-REFERENCES [dbo].[programs] ([program_id])
+ALTER TABLE [dbo].[customers_discounts]
+WITH CHECK ADD
+	CONSTRAINT [FK_customers_discounts_programs] FOREIGN KEY([program_id])
+	REFERENCES [dbo].[programs] ([program_id])
 GO
 
-ALTER TABLE [dbo].[customers_discounts] CHECK CONSTRAINT [FK_customers_discounts_programs]
+ALTER TABLE [dbo].[customers_discounts]
+CHECK CONSTRAINT [FK_customers_discounts_programs]
 GO
 ```
 
@@ -376,18 +400,24 @@ CREATE TABLE [dbo].[discount_data_in_programs](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[discount_data_in_programs]  WITH CHECK ADD  CONSTRAINT [FK_discount_data_in_programs_discount_data] FOREIGN KEY([discount_data_id])
-REFERENCES [dbo].[discount_data] ([discount_data_id])
+ALTER TABLE [dbo].[discount_data_in_programs]
+WITH CHECK ADD
+	CONSTRAINT [FK_discount_data_in_programs_discount_data] FOREIGN KEY([discount_data_id])
+	REFERENCES [dbo].[discount_data] ([discount_data_id])
 GO
 
-ALTER TABLE [dbo].[discount_data_in_programs] CHECK CONSTRAINT [FK_discount_data_in_programs_discount_data]
+ALTER TABLE [dbo].[discount_data_in_programs]
+CHECK CONSTRAINT [FK_discount_data_in_programs_discount_data]
 GO
 
-ALTER TABLE [dbo].[discount_data_in_programs]  WITH CHECK ADD  CONSTRAINT [FK_discount_data_in_programs_programs] FOREIGN KEY([program_id])
-REFERENCES [dbo].[programs] ([program_id])
+ALTER TABLE [dbo].[discount_data_in_programs]
+WITH CHECK ADD
+	CONSTRAINT [FK_discount_data_in_programs_programs] FOREIGN KEY([program_id])
+	REFERENCES [dbo].[programs] ([program_id])
 GO
 
-ALTER TABLE [dbo].[discount_data_in_programs] CHECK CONSTRAINT [FK_discount_data_in_programs_programs]
+ALTER TABLE [dbo].[discount_data_in_programs]
+CHECK CONSTRAINT [FK_discount_data_in_programs_programs]
 GO
 ```
 
@@ -466,18 +496,24 @@ CREATE TABLE [dbo].[individual](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[individual]  WITH CHECK ADD  CONSTRAINT [FK_individual_customers] FOREIGN KEY([customer_id])
-REFERENCES [dbo].[customers] ([customer_id])
+ALTER TABLE [dbo].[individual]
+WITH CHECK ADD
+	CONSTRAINT [FK_individual_customers] FOREIGN KEY([customer_id])
+	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
-ALTER TABLE [dbo].[individual] CHECK CONSTRAINT [FK_individual_customers]
+ALTER TABLE [dbo].[individual]
+CHECK CONSTRAINT [FK_individual_customers]
 GO
 
-ALTER TABLE [dbo].[individual]  WITH CHECK ADD  CONSTRAINT [FK_individual_person] FOREIGN KEY([person_id])
-REFERENCES [dbo].[person] ([person_id])
+ALTER TABLE [dbo].[individual]
+WITH CHECK ADD
+	CONSTRAINT [FK_individual_person] FOREIGN KEY([person_id])
+	REFERENCES [dbo].[person] ([person_id])
 GO
 
-ALTER TABLE [dbo].[individual] CHECK CONSTRAINT [FK_individual_person]
+ALTER TABLE [dbo].[individual]
+CHECK CONSTRAINT [FK_individual_person]
 GO
 ```
 
@@ -487,7 +523,6 @@ Tabela przechowująca dane o menu
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[menu]    Script Date: 24.12.2020 15:54:38 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -517,7 +552,6 @@ Tabela przechowująca informacje szczegółowe dotyczące poszczególnych menu.
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[menu_details]    Script Date: 24.12.2020 15:55:49 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -542,18 +576,24 @@ CREATE TABLE [dbo].[menu_details](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[menu_details]  WITH CHECK ADD  CONSTRAINT [FK_menu_details_menu_items] FOREIGN KEY([item_id])
-REFERENCES [dbo].[menu_items] ([item_id])
+ALTER TABLE [dbo].[menu_details]
+WITH CHECK ADD
+	CONSTRAINT [FK_menu_details_menu_items] FOREIGN KEY([item_id])
+	REFERENCES [dbo].[menu_items] ([item_id])
 GO
 
-ALTER TABLE [dbo].[menu_details] CHECK CONSTRAINT [FK_menu_details_menu_items]
+ALTER TABLE [dbo].[menu_details]
+CHECK CONSTRAINT [FK_menu_details_menu_items]
 GO
 
-ALTER TABLE [dbo].[menu_details]  WITH CHECK ADD  CONSTRAINT [FK_menu_details_menu1] FOREIGN KEY([menu_id])
-REFERENCES [dbo].[menu] ([menu_id])
+ALTER TABLE [dbo].[menu_details]
+WITH CHECK ADD
+	CONSTRAINT [FK_menu_details_menu1] FOREIGN KEY([menu_id])
+	REFERENCES [dbo].[menu] ([menu_id])
 GO
 
-ALTER TABLE [dbo].[menu_details] CHECK CONSTRAINT [FK_menu_details_menu1]
+ALTER TABLE [dbo].[menu_details]
+CHECK CONSTRAINT [FK_menu_details_menu1]
 GO
 ```
 
@@ -563,7 +603,6 @@ Tabela przechowująca dane dotyczące pojedynczych dań mogących występować w
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[menu_items]    Script Date: 24.12.2020 15:57:15 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -586,11 +625,14 @@ CREATE TABLE [dbo].[menu_items](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[menu_items]  WITH CHECK ADD  CONSTRAINT [FK_menu_items_categories] FOREIGN KEY([category_id])
-REFERENCES [dbo].[categories] ([category_id])
+ALTER TABLE [dbo].[menu_items]
+WITH CHECK ADD
+	CONSTRAINT [FK_menu_items_categories] FOREIGN KEY([category_id])
+	REFERENCES [dbo].[categories] ([category_id])
 GO
 
-ALTER TABLE [dbo].[menu_items] CHECK CONSTRAINT [FK_menu_items_categories]
+ALTER TABLE [dbo].[menu_items]
+CHECK CONSTRAINT [FK_menu_items_categories]
 GO
 ```
 
@@ -600,7 +642,6 @@ Tabela przechowująca szczegółowe informacje dotyczące zamówienia
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[order_details]    Script Date: 24.12.2020 15:58:44 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -626,18 +667,24 @@ CREATE TABLE [dbo].[order_details](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[order_details]  WITH CHECK ADD  CONSTRAINT [FK_order_details_menu_items] FOREIGN KEY([item_id])
-REFERENCES [dbo].[menu_items] ([item_id])
+ALTER TABLE [dbo].[order_details]
+WITH CHECK ADD
+	CONSTRAINT [FK_order_details_menu_items] FOREIGN KEY([item_id])
+	REFERENCES [dbo].[menu_items] ([item_id])
 GO
 
-ALTER TABLE [dbo].[order_details] CHECK CONSTRAINT [FK_order_details_menu_items]
+ALTER TABLE [dbo].[order_details]
+CHECK CONSTRAINT [FK_order_details_menu_items]
 GO
 
-ALTER TABLE [dbo].[order_details]  WITH CHECK ADD  CONSTRAINT [FK_order_details_orders] FOREIGN KEY([order_id])
-REFERENCES [dbo].[orders] ([order_id])
+ALTER TABLE [dbo].[order_details]
+WITH CHECK ADD
+	CONSTRAINT [FK_order_details_orders] FOREIGN KEY([order_id])
+	REFERENCES [dbo].[orders] ([order_id])
 GO
 
-ALTER TABLE [dbo].[order_details] CHECK CONSTRAINT [FK_order_details_orders]
+ALTER TABLE [dbo].[order_details]
+CHECK CONSTRAINT [FK_order_details_orders]
 GO
 ```
 
@@ -647,7 +694,6 @@ Tabela przechowująca dane o składanych zamówieniach
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[orders]    Script Date: 24.12.2020 15:59:52 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -673,25 +719,34 @@ CREATE TABLE [dbo].[orders](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[orders]  WITH CHECK ADD  CONSTRAINT [FK_orders_customers] FOREIGN KEY([customer_id])
-REFERENCES [dbo].[customers] ([customer_id])
+ALTER TABLE [dbo].[orders]
+WITH CHECK ADD
+	CONSTRAINT [FK_orders_customers] FOREIGN KEY([customer_id])
+	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
-ALTER TABLE [dbo].[orders] CHECK CONSTRAINT [FK_orders_customers]
+ALTER TABLE [dbo].[orders]
+CHECK CONSTRAINT [FK_orders_customers]
 GO
 
-ALTER TABLE [dbo].[orders]  WITH CHECK ADD  CONSTRAINT [FK_orders_employees] FOREIGN KEY([employee_id])
-REFERENCES [dbo].[employees] ([employee_id])
+ALTER TABLE [dbo].[orders]
+WITH CHECK ADD
+	CONSTRAINT [FK_orders_employees] FOREIGN KEY([employee_id])
+	REFERENCES [dbo].[employees] ([employee_id])
 GO
 
-ALTER TABLE [dbo].[orders] CHECK CONSTRAINT [FK_orders_employees]
+ALTER TABLE [dbo].[orders]
+CHECK CONSTRAINT [FK_orders_employees]
 GO
 
-ALTER TABLE [dbo].[orders]  WITH CHECK ADD  CONSTRAINT [FK_orders_status_dictionary] FOREIGN KEY([status])
-REFERENCES [dbo].[status_dictionary] ([status_id])
+ALTER TABLE [dbo].[orders]
+WITH CHECK ADD
+	CONSTRAINT [FK_orders_status_dictionary] FOREIGN KEY([status])
+	REFERENCES [dbo].[status_dictionary] ([status_id])
 GO
 
-ALTER TABLE [dbo].[orders] CHECK CONSTRAINT [FK_orders_status_dictionary]
+ALTER TABLE [dbo].[orders]
+CHECK CONSTRAINT [FK_orders_status_dictionary]
 GO
 ```
 
@@ -701,7 +756,6 @@ Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klient
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[person]    Script Date: 24.12.2020 16:00:44 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -736,18 +790,24 @@ CREATE TABLE [dbo].[person](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[person]  WITH CHECK ADD  CONSTRAINT [FK_person_address] FOREIGN KEY([address_id])
-REFERENCES [dbo].[address] ([address_id])
+ALTER TABLE [dbo].[person]
+WITH CHECK ADD
+	CONSTRAINT [FK_person_address] FOREIGN KEY([address_id])
+	REFERENCES [dbo].[address] ([address_id])
 GO
 
-ALTER TABLE [dbo].[person] CHECK CONSTRAINT [FK_person_address]
+ALTER TABLE [dbo].[person]
+CHECK CONSTRAINT [FK_person_address]
 GO
 
-ALTER TABLE [dbo].[person]  WITH CHECK ADD  CONSTRAINT [FK_person_employees] FOREIGN KEY([person_id])
-REFERENCES [dbo].[employees] ([employee_id])
+ALTER TABLE [dbo].[person]
+WITH CHECK ADD
+	CONSTRAINT [FK_person_employees] FOREIGN KEY([person_id])
+	REFERENCES [dbo].[employees] ([employee_id])
 GO
 
-ALTER TABLE [dbo].[person] CHECK CONSTRAINT [FK_person_employees]
+ALTER TABLE [dbo].[person]
+CHECK CONSTRAINT [FK_person_employees]
 GO
 ```
 
@@ -757,7 +817,6 @@ Tabela przechowująca dane o programach rabatowych
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[programs]    Script Date: 24.12.2020 16:07:15 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -786,7 +845,6 @@ Tabela przechowująca dane dotyczące stolików, które można rezerwować
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[reservable_tables]    Script Date: 24.12.2020 16:08:28 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -811,17 +869,23 @@ CREATE TABLE [dbo].[reservable_tables](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[reservable_tables]  WITH CHECK ADD  CONSTRAINT [FK_reservable_tables_tables] FOREIGN KEY([table_id])
-REFERENCES [dbo].[tables] ([table_id])
+ALTER TABLE [dbo].[reservable_tables] 
+WITH CHECK ADD
+	CONSTRAINT [FK_reservable_tables_tables] FOREIGN KEY([table_id])
+	REFERENCES [dbo].[tables] ([table_id])
 GO
 
-ALTER TABLE [dbo].[reservable_tables] CHECK CONSTRAINT [FK_reservable_tables_tables]
+ALTER TABLE [dbo].[reservable_tables]
+CHECK CONSTRAINT [FK_reservable_tables_tables]
 GO
 
-ALTER TABLE [dbo].[reservable_tables]  WITH CHECK ADD  CONSTRAINT [CK_reservable_tables] CHECK  (([seats_no]>=(0)))
+ALTER TABLE [dbo].[reservable_tables]
+WITH CHECK ADD
+	CONSTRAINT [CK_reservable_tables] CHECK  (([seats_no]>=(0)))
 GO
 
-ALTER TABLE [dbo].[reservable_tables] CHECK CONSTRAINT [CK_reservable_tables]
+ALTER TABLE [dbo].[reservable_tables]
+CHECK CONSTRAINT [CK_reservable_tables]
 GO
 
 ALTER TABLE [dbo].[reservable_tables]  WITH CHECK ADD  CONSTRAINT [CK_reservable_tables_1] CHECK  (([since_date]<[due_date]))
@@ -885,7 +949,6 @@ Tabela przechowująca dane o osobach przypisanych do danej rezerwacji
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[reservations_collector]    Script Date: 24.12.2020 16:10:37 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -899,22 +962,33 @@ CREATE TABLE [dbo].[reservations_collector](
 (
 	[reservation_id] ASC,
 	[person_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[reservations_collector]  WITH CHECK ADD  CONSTRAINT [FK_reservations_collector_person] FOREIGN KEY([person_id])
-REFERENCES [dbo].[person] ([person_id])
+ALTER TABLE [dbo].[reservations_collector]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_collector_person] FOREIGN KEY([person_id])
+	REFERENCES [dbo].[person] ([person_id])
 GO
 
-ALTER TABLE [dbo].[reservations_collector] CHECK CONSTRAINT [FK_reservations_collector_person]
+ALTER TABLE [dbo].[reservations_collector]
+CHECK CONSTRAINT [FK_reservations_collector_person]
 GO
 
-ALTER TABLE [dbo].[reservations_collector]  WITH CHECK ADD  CONSTRAINT [FK_reservations_collector_reservations] FOREIGN KEY([reservation_id])
-REFERENCES [dbo].[reservations] ([reservation_id])
+ALTER TABLE [dbo].[reservations_collector]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_collector_reservations] FOREIGN KEY([reservation_id])
+	REFERENCES [dbo].[reservations] ([reservation_id])
 GO
 
-ALTER TABLE [dbo].[reservations_collector] CHECK CONSTRAINT [FK_reservations_collector_reservations]
+ALTER TABLE [dbo].[reservations_collector]
+CHECK CONSTRAINT [FK_reservations_collector_reservations]
 GO
 ```
 
@@ -924,7 +998,6 @@ Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[reservations_orders]    Script Date: 24.12.2020 16:11:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -938,7 +1011,12 @@ CREATE TABLE [dbo].[reservations_orders](
 (
 	[reservation_id] ASC,
 	[order_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
@@ -963,7 +1041,6 @@ Słownik statusów, w których może znajdować się zamówienie
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[status_dictionary]    Script Date: 24.12.2020 16:12:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -976,7 +1053,12 @@ CREATE TABLE [dbo].[status_dictionary](
  CONSTRAINT [PK_status_dictionary] PRIMARY KEY CLUSTERED 
 (
 	[status_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 ```
@@ -987,7 +1069,6 @@ Tabela przechowująca informacje o stolikach, które znajdują się na stanie.
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[tables]    Script Date: 24.12.2020 16:13:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -1000,7 +1081,12 @@ CREATE TABLE [dbo].[tables](
  CONSTRAINT [PK_tables] PRIMARY KEY CLUSTERED 
 (
 	[table_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 ```
