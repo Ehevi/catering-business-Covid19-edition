@@ -1,9 +1,9 @@
 # Opisy tabel
-[Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies_Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
+[Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
 --- | --- | --- | --- | --- | --- |
-[**Customers_Discounts**](tableDescriptions.md#customers_discounts) | [Discount_Data](tableDescriptions.md#discount_data) | [Discount_Data_In_Programs](tableDescriptions.md#dicount_data_in_programs) | [Employees](tableDescriptions.md#employees) | [Individual](tableDescriptions.md#individual) | [Menu](tableDescriptions.md#menu) |
-[Menu_Details](tableDescriptions.md#menu_details) | [Menu_Items](tableDescriptions.md#menu_items) | [Order_Details](tableDescriptions.md#order_details) | [Orders](tableDescriptions.md#orders) | [Person](tableDescriptions.md#person) | [Programs](tableDescriptions.md#programs) |
-[Reservable_Tables](tableDescriptions.md#reservable_tables) | [Reservations](tableDescriptions.md#reservations) | [Reservations_Collector](tableDescriptions.md#reservations_collector) | [Reservations_Orders](tableDescriptions.md#reservations_orders) | [Status_Dictionary](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
+[**Customers**](tableDescriptions.md#customers) | [**Customers Discounts**](tableDescriptions.md#customers_discounts) | [**Discount Data**](tableDescriptions.md#discount_data) | [**Discount Data In Programs**](tableDescriptions.md#dicount_data_in_programs) | [**Employees**](tableDescriptions.md#employees) | [**Individual**](tableDescriptions.md#individual) | [**Menu**](tableDescriptions.md#menu) |
+[**Menu Details**](tableDescriptions.md#menu_details) | [**Menu Items**](tableDescriptions.md#menu_items) | [**Order Details**](tableDescriptions.md#order_details) | [**Orders**](tableDescriptions.md#orders) | [**Person**](tableDescriptions.md#person) | [**Programs**](tableDescriptions.md#programs) |
+[**Reservable Tables**](tableDescriptions.md#reservable_tables) | [**Reservations**](tableDescriptions.md#reservations) | [**Reservations Collector**](tableDescriptions.md#reservations_collector) | [**Reservations Orders**](tableDescriptions.md#reservations_orders) | [**Status Dictionary**](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych
 ```sql
