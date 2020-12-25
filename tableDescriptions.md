@@ -42,7 +42,7 @@ ALTER TABLE [dbo].[address]
 CHECK CONSTRAINT [FK_address_cities]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CATEGORIES
 Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _owoce morza_)
@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[categories](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CITIES
 Tabela przechowująca dane o miastach znajdujących się w bazie danych
@@ -111,7 +111,7 @@ ALTER TABLE [dbo].[cities]
 CHECK CONSTRAINT [FK_cities_countries]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COMPANIES
 Tabela przechowująca dane o klientach firmowych.
@@ -186,7 +186,7 @@ ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [FK_companies_customers]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COMPANIES_EMPLOYEES
 Tabela zawierająca informacje o pracownikach klientów firmowych.
@@ -236,7 +236,7 @@ ALTER TABLE [dbo].[companies_employees]
 CHECK CONSTRAINT [FK_companies_employees_person]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COUNRIES
 Słownik państw występujących w adresach osobowych i firmowych.
@@ -265,7 +265,7 @@ CREATE TABLE [dbo].[countries](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CUSTOMERS
 Tabela przechowująca ID klientów
@@ -293,7 +293,7 @@ CREATE TABLE [dbo].[customers](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CUSTOMERS_DICSOUNTS
 Tabela przechowująca dane o programach rabatowych poszczególnych klientów
@@ -344,7 +344,7 @@ ALTER TABLE [dbo].[customers_discounts]
 CHECK CONSTRAINT [FK_customers_discounts_programs]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### DISCOUNT_DATA
 Tabela przechowująca dane dotyczące zmiennych występujących jako wartości liczbowe w poszczególnych programach rabatowych.
@@ -374,7 +374,7 @@ CREATE TABLE [dbo].[discount_data](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### DISCOUNT_DATA_IN_PROGRAMS
 Tabela przechowująca informacje o tym, jakie zmienne są przyporządkowane do poszczególnych programów rabatowych.
@@ -424,7 +424,7 @@ ALTER TABLE [dbo].[discount_data_in_programs]
 CHECK CONSTRAINT [FK_discount_data_in_programs_programs]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### EMPLOYEES
 Tabela wskazująca na dane osób pracujących w usługach gastronomicznych.
@@ -452,7 +452,7 @@ CREATE TABLE [dbo].[employees](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### INDIVIDUAL
 Tabela przechowująca dane o klientach indywidualnych
@@ -520,7 +520,7 @@ ALTER TABLE [dbo].[individual]
 CHECK CONSTRAINT [FK_individual_person]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU
 Tabela przechowująca dane o menu
@@ -550,7 +550,7 @@ CREATE TABLE [dbo].[menu](
 ) ON [PRIMARY]
 GO
 ```
-[:arrow_double_up:](tableDescriptions.md)
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU_DETAILS
 Tabela przechowująca informacje szczegółowe dotyczące poszczególnych menu.
@@ -602,6 +602,7 @@ ALTER TABLE [dbo].[menu_details]
 CHECK CONSTRAINT [FK_menu_details_menu1]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU_ITEMS
 Tabela przechowująca dane dotyczące pojedynczych dań mogących występować w menu
@@ -641,6 +642,7 @@ ALTER TABLE [dbo].[menu_items]
 CHECK CONSTRAINT [FK_menu_items_categories]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### ORDER_DETAILS
 Tabela przechowująca szczegółowe informacje dotyczące zamówienia
@@ -693,6 +695,7 @@ ALTER TABLE [dbo].[order_details]
 CHECK CONSTRAINT [FK_order_details_orders]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### ORDERS
 Tabela przechowująca dane o składanych zamówieniach
@@ -755,6 +758,7 @@ ALTER TABLE [dbo].[orders]
 CHECK CONSTRAINT [FK_orders_status_dictionary]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PERSON
 Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klientów firmowych oraz pracowników gastronomii
@@ -816,6 +820,7 @@ ALTER TABLE [dbo].[person]
 CHECK CONSTRAINT [FK_person_employees]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PROGRAMS
 Tabela przechowująca dane o programach rabatowych
@@ -844,6 +849,7 @@ CREATE TABLE [dbo].[programs](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVABLE_TABLES
 Tabela przechowująca dane dotyczące stolików, które można rezerwować
@@ -900,6 +906,7 @@ GO
 ALTER TABLE [dbo].[reservable_tables] CHECK CONSTRAINT [CK_reservable_tables_1]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS
 Tabela przechowująca dane dotyczące rezerwacji
@@ -948,6 +955,7 @@ GO
 ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [CK_reservations]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS_COLLECTOR
 Tabela przechowująca dane o osobach przypisanych do danej rezerwacji
@@ -997,6 +1005,7 @@ ALTER TABLE [dbo].[reservations_collector]
 CHECK CONSTRAINT [FK_reservations_collector_reservations]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS_ORDERS
 Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji
@@ -1040,6 +1049,7 @@ GO
 ALTER TABLE [dbo].[reservations_orders] CHECK CONSTRAINT [FK_reservations_orders_reservations]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### STATUS_DICTIONARY
 Słownik statusów, w których może znajdować się zamówienie
@@ -1068,6 +1078,7 @@ CREATE TABLE [dbo].[status_dictionary](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### TABLES
 Tabela przechowująca informacje o stolikach, które znajdują się na stanie.
@@ -1096,3 +1107,4 @@ CREATE TABLE [dbo].[tables](
 ) ON [PRIMARY]
 GO
 ```
+[:arrow_double_up:](tableDescriptions.md#opisy-tabel)
