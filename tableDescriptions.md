@@ -5,7 +5,6 @@ Tabela przechowująca dane o adresach osobowych i firmowych
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[address]    Script Date: 24.12.2020 15:25:47 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -45,7 +44,6 @@ Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[categories]    Script Date: 24.12.2020 15:31:11 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -74,7 +72,6 @@ Tabela przechowująca dane o miastach znajdujących się w bazie danych
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[cities]    Script Date: 24.12.2020 15:34:42 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -117,7 +114,6 @@ phone: unikalny, wyłącznie znaki numeryczne
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[companies]    Script Date: 24.12.2020 14:29:26 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -189,7 +185,6 @@ Tabela zawierająca informacje o pracownikach klientów firmowych.
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[companies_employees]    Script Date: 24.12.2020 15:39:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -239,7 +234,6 @@ Słownik państw występujących w adresach osobowych i firmowych.
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[countries]    Script Date: 24.12.2020 15:40:57 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -268,7 +262,6 @@ Tabela przechowująca ID klientów
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[customers]    Script Date: 24.12.2020 15:42:12 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -296,7 +289,6 @@ Tabela przechowująca dane o programach rabatowych poszczególnych klientów
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[customers_discounts]    Script Date: 24.12.2020 15:43:18 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -347,7 +339,6 @@ Tabela przechowująca dane dotyczące zmiennych występujących jako wartości l
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[discount_data]    Script Date: 24.12.2020 15:44:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -377,7 +368,6 @@ Tabela przechowująca informacje o tym, jakie zmienne są przyporządkowane do p
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[discount_data_in_programs]    Script Date: 24.12.2020 15:46:42 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -427,7 +417,6 @@ Tabela wskazująca na dane osób pracujących w usługach gastronomicznych.
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[employees]    Script Date: 24.12.2020 15:48:23 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -455,7 +444,6 @@ Tabela przechowująca dane o klientach indywidualnych
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[individual]    Script Date: 24.12.2020 15:52:21 ******/
 SET ANSI_NULLS ON
 GO
 
