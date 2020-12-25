@@ -1,9 +1,10 @@
 # Opisy tabel
-[Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies Employees](tableDescriptions.md#companies_employees) | [Countries](tableDescriptions.md#countries) |
---- | --- | --- | --- | --- | --- |
-[**Customers**](tableDescriptions.md#customers) | [**Customers Discounts**](tableDescriptions.md#customers_discounts) | [**Discount Data**](tableDescriptions.md#discount_data) | [**Discount Data In Programs**](tableDescriptions.md#dicount_data_in_programs) | [**Employees**](tableDescriptions.md#employees) | [**Individual**](tableDescriptions.md#individual) | [**Menu**](tableDescriptions.md#menu) |
-[**Menu Details**](tableDescriptions.md#menu_details) | [**Menu Items**](tableDescriptions.md#menu_items) | [**Order Details**](tableDescriptions.md#order_details) | [**Orders**](tableDescriptions.md#orders) | [**Person**](tableDescriptions.md#person) | [**Programs**](tableDescriptions.md#programs) |
-[**Reservable Tables**](tableDescriptions.md#reservable_tables) | [**Reservations**](tableDescriptions.md#reservations) | [**Reservations Collector**](tableDescriptions.md#reservations_collector) | [**Reservations Orders**](tableDescriptions.md#reservations_orders) | [**Status Dictionary**](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
+[Address](tableDescriptions.md#address) | [Categories](tableDescriptions.md#categories) | [Cities](tableDescriptions.md#cities) | [Companies](tableDescriptions.md#companies) | [Companies Employees](tableDescriptions.md#companies_employees) |
+--- | --- | --- | --- | --- |
+[**Countries**](tableDescriptions.md#countries) | [**Customers**](tableDescriptions.md#customers) | [**Customers Discounts**](tableDescriptions.md#customers_discounts) | [**Discount Data**](tableDescriptions.md#discount_data) | [**Discount Data In Programs**](tableDescriptions.md#dicount_data_in_programs) |
+[**Employees**](tableDescriptions.md#employees) | [**Individual**](tableDescriptions.md#individual) | [**Menu**](tableDescriptions.md#menu) | [**Menu Details**](tableDescriptions.md#menu_details) | [**Menu Items**](tableDescriptions.md#menu_items) |
+[**Order Details**](tableDescriptions.md#order_details) | [**Orders**](tableDescriptions.md#orders) | [**Person**](tableDescriptions.md#person) | [**Programs**](tableDescriptions.md#programs) | [**Reservable Tables**](tableDescriptions.md#reservable_tables) |
+[**Reservations**](tableDescriptions.md#reservations) | [**Reservations Collector**](tableDescriptions.md#reservations_collector) | [**Reservations Orders**](tableDescriptions.md#reservations_orders) | [**Status Dictionary**](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych
 ```sql
@@ -931,19 +932,28 @@ CREATE TABLE [dbo].[reservations](
  CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED 
 (
 	[reservation_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[reservations]  WITH CHECK ADD  CONSTRAINT [FK_reservations_customers] FOREIGN KEY([customer_id])
-REFERENCES [dbo].[customers] ([customer_id])
+ALTER TABLE [dbo].[reservations]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_customers] FOREIGN KEY([customer_id])
+	REFERENCES [dbo].[customers] ([customer_id])
 GO
 
 ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [FK_reservations_customers]
 GO
 
-ALTER TABLE [dbo].[reservations]  WITH CHECK ADD  CONSTRAINT [FK_reservations_reservable_tables] FOREIGN KEY([table_id])
-REFERENCES [dbo].[reservable_tables] ([res_table_id])
+ALTER TABLE [dbo].[reservations]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_reservable_tables] FOREIGN KEY([table_id])
+	REFERENCES [dbo].[reservable_tables] ([res_table_id])
 GO
 
 ALTER TABLE [dbo].[reservations] CHECK CONSTRAINT [FK_reservations_reservable_tables]
@@ -1035,18 +1045,23 @@ CREATE TABLE [dbo].[reservations_orders](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[reservations_orders]  WITH CHECK ADD  CONSTRAINT [FK_reservations_orders_orders] FOREIGN KEY([order_id])
-REFERENCES [dbo].[orders] ([order_id])
+ALTER TABLE [dbo].[reservations_orders]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_orders_orders] FOREIGN KEY([order_id])
+	REFERENCES [dbo].[orders] ([order_id])
 GO
 
 ALTER TABLE [dbo].[reservations_orders] CHECK CONSTRAINT [FK_reservations_orders_orders]
 GO
 
-ALTER TABLE [dbo].[reservations_orders]  WITH CHECK ADD  CONSTRAINT [FK_reservations_orders_reservations] FOREIGN KEY([reservation_id])
-REFERENCES [dbo].[reservations] ([reservation_id])
+ALTER TABLE [dbo].[reservations_orders]
+WITH CHECK ADD
+	CONSTRAINT [FK_reservations_orders_reservations] FOREIGN KEY([reservation_id])
+	REFERENCES [dbo].[reservations] ([reservation_id])
 GO
 
-ALTER TABLE [dbo].[reservations_orders] CHECK CONSTRAINT [FK_reservations_orders_reservations]
+ALTER TABLE [dbo].[reservations_orders]
+CHECK CONSTRAINT [FK_reservations_orders_reservations]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
