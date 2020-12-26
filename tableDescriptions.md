@@ -283,7 +283,7 @@ GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
-### COUNRIES
+### COUNTRIES
 Słownik państw występujących w adresach osobowych i firmowych.
 ```sql
 USE [u_cyra_1]
