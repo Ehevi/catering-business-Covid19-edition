@@ -13,6 +13,7 @@ Tabela przechowująca dane o adresach osobowych i firmowych.
 
 Każdy rekord zawiera identyfikator: `address_id`, który jest kluczem głównym tabeli.
 Zawartość kolumny `street` to adres rozumiany jako ulica z przypisanym numerem domu lub/i mieszkania.
+Dalej zajduje się kod pocztowy `postal_code`. Może on być postaci XX-XXX | XXXXXX | XXXXXXX, gdzie X jest cyfrą 0-9.
 Ponadto klucz obcy `city_id` pozwala zidentyfikować miasto przypisane do adresu (tabela słownikowa [Cities](tableDescriptions.md#cities)).
 ```sql
 USE [u_cyra_1]
@@ -27,6 +28,7 @@ GO
 CREATE TABLE [dbo].[address](
 	[address_id] [int] IDENTITY(1,1) NOT NULL,
 	[street] [nvarchar](50) NOT NULL,
+	[postal_code] [nvarchar](10) NOT NULL,
 	[city_id] [int] NOT NULL,
 
 CONSTRAINT [PK_address] PRIMARY KEY CLUSTERED (
@@ -49,6 +51,16 @@ GO
 ALTER TABLE [dbo].[address]
 CHECK CONSTRAINT [FK_address_cities]
 GO
+
+ALTER TABLE [dbo].[address]
+WITH CHECK ADD
+	CONSTRAINT [AD_postal_code]
+	CHECK (( [postal_code] LIKE '[0-9][0-9]-[0-9][0-9][0-9]'
+		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9]'
+		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9]' ))
+		
+ALTER TABLE [dbo].[address]
+CHECK CONSTRAINT [AD_postal_code]
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
@@ -97,7 +109,7 @@ Tabela przechowująca dane o miastach znajdujących się w bazie danych.
 
 Miasta identyfikowane są za pomocą klucza głównego `city_id`, rekord zawiera także informację o nazwie miasta (`city_name`) oraz klucz główny `country_id` wskazujący na rekord w tabeli słownikowej państw ([Countries](tableDescriptions.md#countries)), określający gdzie znajduje się dana miejscowość.
 
-Nazwy miast _NIE_ są unikalne, ponieważ w obrębie jednego państwa może znajdować się kilka miejscowości o tej samej nazwie.
+Nazwy miast są unikalne, mimo że w obrębie jednego państwa może znajdować się kilka miejscowości o tej samej nazwie, ponieważ tabela przechowuje tylko ich nazwy, nie służy do jednoznaczej identyfikacji. Ta ma miejsce o jeden krok "wyżej" w hierarchii: w tabeli [Address](tableDescriptions.md#address), gdzie przechowywany jest kod pocztowy (kod pocztowy nie jest przechowywany w tabeli miast, ponieważ czasami różni się w zależności od dzielnicy danego miasta).
 ```sql
 USE [u_cyra_1]
 GO
@@ -115,6 +127,16 @@ CREATE TABLE [dbo].[cities](
 	
 CONSTRAINT [PK_cities] PRIMARY KEY CLUSTERED (
 	[city_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY],
+
+CONSTRAINT [UQ_city_name] UNIQUE NONCLUSTERED (
+	[city_name] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
