@@ -165,8 +165,8 @@ Warunki integralnościowe:
 - numer klienta `customer_id` jest unikalny (połączenie 1-to-1 z tabelą [Customers](tableDescriptions.md#customers))
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
 - email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu
-- NIP: unikalny, wyłącznie znaki numeryczne
-- phone: unikalny, wyłącznie znaki numeryczne
+- NIP (`NIP`): unikalny, wyłącznie znaki numeryczne
+- telefon (`phone`): unikalny, wyłącznie znaki numeryczne, min. 9 cyfr ewentualnie oddzielonych spacjami, możliwość poprzedzenia całości numerem kierunkowym
 ```sql
 USE [u_cyra_1]
 GO
@@ -261,6 +261,40 @@ GO
 ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [FK_companies_customers]
 GO
+
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [companies_phone_pattern]
+	CHECK (( [phone] LIKE '[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*'
+		OR [phone] LIKE '+([0-9][0-9])[:space:]*[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*'))
+
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [companies_phone_pattern]
+
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [companies_email_pattern]
+	CHECK (( [email] LIKE '_%@%_' ))
+
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [companies_email_pattern]
+
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [companies_phone_pattern]
+	CHECK (( [phone] LIKE '[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*'
+		OR [phone] LIKE '+([0-9][0-9])[:space:]*[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*'))
+
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [companies_phone_pattern]
+
+ALTER TABLE [dbo].[companies]
+WITH CHECK ADD
+	CONSTRAINT [companies_NIP_pattern]
+	CHECK (( [NIP] LIKE '[0-9]{10}' ))
+
+ALTER TABLE [dbo].[companies]
+CHECK CONSTRAINT [companies_NIP_pattern]
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
