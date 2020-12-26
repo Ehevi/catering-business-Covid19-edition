@@ -93,7 +93,11 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CITIES
-Tabela przechowująca dane o miastach znajdujących się w bazie danych
+Tabela przechowująca dane o miastach znajdujących się w bazie danych.
+
+Miasta identyfikowane są za pomocą klucza głównego `city_id`, rekord zawiera także informację o nazwie miasta (`city_name`) oraz klucz główny `country_id` wskazujący na rekord w tabeli słownikowej państw ([Countries](tableDescriptions.md#countries)), określający gdzie znajduje się dana miejscowość.
+
+Nazwy miast _NIE_ są unikalne, ponieważ w obrębie jednego państwa może znajdować się kilka miejscowości o tej samej nazwie.
 ```sql
 USE [u_cyra_1]
 GO
