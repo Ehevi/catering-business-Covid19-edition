@@ -24,7 +24,8 @@ CREATE TABLE [dbo].[address](
 	[street] [nvarchar](50) NOT NULL,
 	[city_id] [int] NOT NULL,
 
-CONSTRAINT [PK_address] PRIMARY KEY CLUSTERED ([address_id] ASC)
+CONSTRAINT [PK_address] PRIMARY KEY CLUSTERED (
+	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -62,7 +63,8 @@ CREATE TABLE [dbo].[categories](
 	[category_id] [int] IDENTITY(1,1) NOT NULL,
 	[category_name] [nvarchar](50) NOT NULL,
 
-CONSTRAINT [PK_categories] PRIMARY KEY CLUSTERED ([category_id] ASC)
+CONSTRAINT [PK_categories] PRIMARY KEY CLUSTERED (
+	[category_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -91,7 +93,8 @@ CREATE TABLE [dbo].[cities](
 	[city_name] [nvarchar](50) NOT NULL,
 	[country_id] [int] NOT NULL,
 	
-CONSTRAINT [PK_cities] PRIMARY KEY CLUSTERED ([city_id] ASC)
+CONSTRAINT [PK_cities] PRIMARY KEY CLUSTERED (
+	[city_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -137,7 +140,8 @@ CREATE TABLE [dbo].[companies](
 	[email] [nvarchar](50) NOT NULL,
 	[NIP] [nvarchar](50) NOT NULL,
 	
-CONSTRAINT [PK_companies] PRIMARY KEY CLUSTERED ([company_id] ASC)
+CONSTRAINT [PK_companies] PRIMARY KEY CLUSTERED (
+	[company_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -145,7 +149,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_Company_Address] UNIQUE NONCLUSTERED ([address_id] ASC)
+CONSTRAINT [Unique_Company_Address] UNIQUE NONCLUSTERED (
+	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -153,7 +158,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 	
-CONSTRAINT [Unique_Customer_ID] UNIQUE NONCLUSTERED ([customer_id] ASC)
+CONSTRAINT [Unique_Customer_ID] UNIQUE NONCLUSTERED (
+	[customer_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -251,7 +257,8 @@ CREATE TABLE [dbo].[countries](
 	[country_id] [int] IDENTITY(1,1) NOT NULL,
 	[country_name] [nvarchar](50) NOT NULL,
 
-CONSTRAINT [PK_countries] PRIMARY KEY CLUSTERED ([country_id] ASC)
+CONSTRAINT [PK_countries] PRIMARY KEY CLUSTERED (
+	[country_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -278,7 +285,8 @@ GO
 CREATE TABLE [dbo].[customers](
 	[customer_id] [int] IDENTITY(1,1) NOT NULL,
 
-CONSTRAINT [PK_customers] PRIMARY KEY CLUSTERED ([customer_id] ASC)
+CONSTRAINT [PK_customers] PRIMARY KEY CLUSTERED (
+	[customer_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -358,7 +366,8 @@ CREATE TABLE [dbo].[discount_data](
 	[type] [nvarchar](50) NOT NULL,
 	[value] [float] NOT NULL,
 
-CONSTRAINT [PK_discount_data] PRIMARY KEY CLUSTERED ([discount_data_id] ASC)
+CONSTRAINT [PK_discount_data] PRIMARY KEY CLUSTERED (
+	[discount_data_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -435,7 +444,8 @@ GO
 CREATE TABLE [dbo].[employees](
 	[employee_id] [int] NOT NULL,
 
-CONSTRAINT [PK_employees] PRIMARY KEY CLUSTERED ([employee_id] ASC)
+CONSTRAINT [PK_employees] PRIMARY KEY CLUSTERED (
+	[employee_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -473,7 +483,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_I_Customer_ID] UNIQUE NONCLUSTERED ([customer_id] ASC)
+CONSTRAINT [Unique_I_Customer_ID] UNIQUE NONCLUSTERED (
+	[customer_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -481,7 +492,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 	
-CONSTRAINT [Unique_I_person_ID] UNIQUE NONCLUSTERED ([person_id] ASC)
+CONSTRAINT [Unique_I_person_ID] UNIQUE NONCLUSTERED (
+	[person_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -530,7 +542,8 @@ CREATE TABLE [dbo].[menu](
 	[since_date] [datetime2](7) NOT NULL,
 	[due_date] [datetime2](7) NOT NULL,
 	
-CONSTRAINT [PK_menu] PRIMARY KEY CLUSTERED ([menu_id] ASC)
+CONSTRAINT [PK_menu] PRIMARY KEY CLUSTERED (
+	[menu_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -611,7 +624,8 @@ CREATE TABLE [dbo].[menu_items](
 	[item_name] [nvarchar](50) NOT NULL,
 	[category_id] [int] NOT NULL,
 	
-CONSTRAINT [PK_menu_items] PRIMARY KEY CLUSTERED ([item_id] ASC)
+CONSTRAINT [PK_menu_items] PRIMARY KEY CLUSTERED (
+	[item_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -706,7 +720,8 @@ CREATE TABLE [dbo].[orders](
 	[collection_date] [datetime2](7) NOT NULL,
 	[status] [int] NOT NULL,
 	
-CONSTRAINT [PK_orders] PRIMARY KEY CLUSTERED ([order_id] ASC)
+CONSTRAINT [PK_orders] PRIMARY KEY CLUSTERED (
+	[order_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -768,7 +783,8 @@ CREATE TABLE [dbo].[person](
 	[phone] [nvarchar](50) NOT NULL,
 	[address_id] [int] NOT NULL,
 	
-CONSTRAINT [PK_person] PRIMARY KEY CLUSTERED ([person_id] ASC)
+CONSTRAINT [PK_person] PRIMARY KEY CLUSTERED (
+	[person_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -776,7 +792,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_Personal_Address] UNIQUE NONCLUSTERED ([address_id] ASC)
+CONSTRAINT [Unique_Personal_Address] UNIQUE NONCLUSTERED (
+	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -824,7 +841,8 @@ CREATE TABLE [dbo].[programs](
 	[program_id] [int] IDENTITY(1,1) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
 
-CONSTRAINT [PK_programs] PRIMARY KEY CLUSTERED ([program_id] ASC)
+CONSTRAINT [PK_programs] PRIMARY KEY CLUSTERED (
+	[program_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -855,7 +873,8 @@ CREATE TABLE [dbo].[reservable_tables](
 	[since_date] [datetime2](7) NOT NULL,
 	[due_date] [datetime2](7) NOT NULL,
 
-CONSTRAINT [PK_reservable_tables] PRIMARY KEY CLUSTERED ([res_table_id] ASC)
+CONSTRAINT [PK_reservable_tables] PRIMARY KEY CLUSTERED (
+	[res_table_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -884,10 +903,13 @@ ALTER TABLE [dbo].[reservable_tables]
 CHECK CONSTRAINT [CK_reservable_tables]
 GO
 
-ALTER TABLE [dbo].[reservable_tables]  WITH CHECK ADD  CONSTRAINT [CK_reservable_tables_1] CHECK  (([since_date]<[due_date]))
+ALTER TABLE [dbo].[reservable_tables]
+WITH CHECK ADD
+	CONSTRAINT [CK_reservable_tables_1] CHECK  (([since_date]<[due_date]))
 GO
 
-ALTER TABLE [dbo].[reservable_tables] CHECK CONSTRAINT [CK_reservable_tables_1]
+ALTER TABLE [dbo].[reservable_tables]
+CHECK CONSTRAINT [CK_reservable_tables_1]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -913,7 +935,8 @@ CREATE TABLE [dbo].[reservations](
 	[date_endtime] [datetime2](7) NOT NULL,
 	[is_acepted] [int] NOT NULL,
 	
-CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED ([reservation_id] ASC)
+CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED(
+	[reservation_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -945,7 +968,7 @@ GO
 
 ALTER TABLE [dbo].[reservations]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservations] CHECK  (([date_start_time]<[date_endtime]))
+	CONSTRAINT [CK_reservations] CHECK (([date_start_time]<[date_endtime]))
 GO
 
 ALTER TABLE [dbo].[reservations]
@@ -1019,11 +1042,11 @@ GO
 CREATE TABLE [dbo].[reservations_orders](
 	[reservation_id] [int] NOT NULL,
 	[order_id] [int] NOT NULL,
- CONSTRAINT [PK_reservations_orders] PRIMARY KEY CLUSTERED 
-(
+	
+CONSTRAINT [PK_reservations_orders] PRIMARY KEY CLUSTERED (
 	[reservation_id] ASC,
-	[order_id] ASC
-)WITH (PAD_INDEX = OFF,
+	[order_id] ASC)
+WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
@@ -1069,10 +1092,10 @@ GO
 CREATE TABLE [dbo].[status_dictionary](
 	[status_id] [int] IDENTITY(1,1) NOT NULL,
 	[status_name] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_status_dictionary] PRIMARY KEY CLUSTERED 
-(
-	[status_id] ASC
-)WITH (PAD_INDEX = OFF,
+
+CONSTRAINT [PK_status_dictionary] PRIMARY KEY CLUSTERED (
+	[status_id] ASC)
+WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
@@ -1098,10 +1121,10 @@ GO
 CREATE TABLE [dbo].[tables](
 	[table_id] [int] IDENTITY(1,1) NOT NULL,
 	[max_seats_no] [int] NOT NULL,
- CONSTRAINT [PK_tables] PRIMARY KEY CLUSTERED 
-(
-	[table_id] ASC
-)WITH (PAD_INDEX = OFF,
+
+CONSTRAINT [PK_tables] PRIMARY KEY CLUSTERED (
+	[table_id] ASC)
+WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
