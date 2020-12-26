@@ -9,6 +9,8 @@
 	
 ### ADDRESS
 Tabela przechowująca dane o adresach osobowych i firmowych.
+
+
 Każdy rekord zawiera identyfikator: `address_id`, który jest kluczem głównym tabeli.
 Zawartość kolumny `street` to adres rozumiany jako ulica z przypisanym numerem domu lub/i mieszkania.
 Ponadto klucz obcy `city_id` pozwala zidentyfikować miasto przypisane do adresu (tabela słownikowa [Cities](tableDescriptions.md#cities)).
@@ -51,7 +53,9 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CATEGORIES
-Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _owoce morza_)
+Tabela przechowująca dane o kategoriach potraw znajdujących się w menu (np. _owoce morza_).
+
+Każda kategoria jest identyfikowana za pomocą klucza głównego: `category_id`. Nazwy kategorii są unikalne.
 ```sql
 USE [u_cyra_1]
 GO
@@ -67,6 +71,15 @@ CREATE TABLE [dbo].[categories](
 	[category_name] [nvarchar](50) NOT NULL,
 
 CONSTRAINT [PK_categories] PRIMARY KEY CLUSTERED (
+	[category_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+	
+CONSTRAINT [UQ_category_name] UNIQUE NONCLUSTERED (
 	[category_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
