@@ -8,7 +8,10 @@
 [**Reservations**](tableDescriptions.md#reservations) | [**Reservations Collector**](tableDescriptions.md#reservations_collector) | [**Reservations Orders**](tableDescriptions.md#reservations_orders) | [**Status Dictionary**](tableDescriptions.md#status_dictionary) | [**Tables**](tableDescriptions.md#tables) |
 	
 ### ADDRESS
-Tabela przechowująca dane o adresach osobowych i firmowych
+Tabela przechowująca dane o adresach osobowych i firmowych.
+Każdy rekord zawiera identyfikator: `address_id`, który jest kluczem głównym tabeli.
+Zawartość kolumny `street` to adres rozumiany jako ulica z przypisanym numerem domu lub/i mieszkania.
+Ponadto klucz obcy `city_id` pozwala zidentyfikować miasto przypisane do adresu (tabela słownikowa [Cities](tableDescriptions.md#cities)).
 ```sql
 USE [u_cyra_1]
 GO
