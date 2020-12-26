@@ -159,10 +159,14 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COMPANIES
-Tabela przechowująca dane o klientach firmowych.
-email: unikalny i zawiera '@'
-NIP: 10 cyfr(znaki numeryczne), unikalny
-phone: unikalny, wyłącznie znaki numeryczne
+Tabela przechowująca dane o klientach firmowych: identyfikator firmy oraz klienta, nazwę firmy, adres, numer telefonu, email, NIP.
+
+Warunki integralnościowe:
+- numer klienta `customer_id` jest unikalny (połączenie 1-to-1 z tabelą [Customers](tableDescriptions.md#customers))
+- adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu
+- NIP: unikalny, wyłącznie znaki numeryczne
+- phone: unikalny, wyłącznie znaki numeryczne
 ```sql
 USE [u_cyra_1]
 GO
@@ -191,7 +195,7 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_Company_Address] UNIQUE NONCLUSTERED (
+CONSTRAINT [UQ_company_address] UNIQUE NONCLUSTERED (
 	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
@@ -200,8 +204,35 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 	
-CONSTRAINT [Unique_Customer_ID] UNIQUE NONCLUSTERED (
+CONSTRAINT [UQ_customer_id] UNIQUE NONCLUSTERED (
 	[customer_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_company_phone] UNIQUE NONCLUSTERED (
+	[phone] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_company_email] UNIQUE NONCLUSTERED (
+	[email] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+	
+CONSTRAINT [UQ_company_NIP] UNIQUE NONCLUSTERED (
+	[NIP] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
