@@ -290,7 +290,7 @@ CHECK CONSTRAINT [companies_NIP_pattern]
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COMPANIES_EMPLOYEES
-Tabela zawierająca informacje o pracownikach klientów firmowych.
+Tabela zawierająca informacje o pracownikach klientów firmowych. Klucz główny składa się z pary wartości: identyfikatora osoby oraz identyfikatora firmy.
 ```sql
 USE [u_cyra_1]
 GO
