@@ -340,7 +340,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COUNTRIES
-Słownik państw występujących w adresach osobowych i firmowych.
+Słownik państw występujących w adresach osobowych i firmowych. Nazwy państw są unikalne.
 ```sql
 USE [u_cyra_1]
 GO
@@ -362,6 +362,15 @@ WITH (PAD_INDEX = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
 	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+	
+CONSTRAINT [UQ_country_name] UNIQUE NONCLUSTERED (
+	[country_name] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -369,7 +378,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CUSTOMERS
-Tabela przechowująca ID klientów
+Tabela przechowująca ID klientów. Klient może być indywidualny lub firmowy. Szczegółowe informacje dotyczące klienta znajdują się wówczas odpowiednio w tabeli [Individual](tableDescriptions.md#individual) lub [Companies](tableDescriptions.md#companies)
 ```sql
 USE [u_cyra_1]
 GO
@@ -397,7 +406,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### CUSTOMERS_DICSOUNTS
-Tabela przechowująca dane o programach rabatowych poszczególnych klientów
+Tabela przechowująca dane o programach rabatowych poszczególnych klientów. Na pojedynczy rekord w tabeli składa się identyfikator klienta, identyfikator programu oraz `date_start_time`: czas rozpoczęcia możliwości korzystania przez klienta ze zniżek przewidzianych w programie (niektóre programy są ograniczone czasowo). Defaultowo jest to moment tworzenia nowego rekordu.
 ```sql
 USE [u_cyra_1]
 GO
