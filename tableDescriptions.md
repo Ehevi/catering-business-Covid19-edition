@@ -1114,7 +1114,7 @@ GO
 
 ALTER TABLE [dbo].[reservable_tables]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservable_seats_no
+	CONSTRAINT [CK_reservable_seats_no]
 	CHECK (( [seats_no] > (0) ))
 GO
 
