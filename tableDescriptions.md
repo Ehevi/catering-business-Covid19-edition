@@ -1203,7 +1203,7 @@ GO
 
 ALTER TABLE [dbo].[reservations]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservations_is_acctepted_value]
+	CONSTRAINT [CK_reservations_is_accepted_value]
 	CHECK (( [is_accepted] in (0, 1) ))
 GO
 
