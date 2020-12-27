@@ -54,13 +54,13 @@ GO
 
 ALTER TABLE [dbo].[address]
 WITH CHECK ADD
-	CONSTRAINT [AD_postal_code]
+	CONSTRAINT [CK_address_postal_code]
 	CHECK (( [postal_code] LIKE '[0-9][0-9]-[0-9][0-9][0-9]'
 		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9]'
 		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9]' ))
 		
 ALTER TABLE [dbo].[address]
-CHECK CONSTRAINT [AD_postal_code]
+CHECK CONSTRAINT [CK_address_postal_code]
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
@@ -164,7 +164,7 @@ Tabela przechowująca dane o klientach firmowych: identyfikator firmy oraz klien
 Warunki integralnościowe:
 - numer klienta `customer_id` jest unikalny (połączenie 1-to-1 z tabelą [Customers](tableDescriptions.md#customers))
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
-- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu, nie może zawierać dwóch znaków '@'
 - NIP (`NIP`): unikalny, 10 cyfr
 - telefon (`phone`): unikalny, znaki numeryczne
 ```sql
@@ -264,31 +264,31 @@ GO
 
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
-	CONSTRAINT [companies_phone_pattern]
+	CONSTRAINT [CK_companies_phone_pattern]
 	CHECK (( ISNUMERIC([phone]) ))
 
 ALTER TABLE [dbo].[companies]
-CHECK CONSTRAINT [companies_phone_pattern]
+CHECK CONSTRAINT [CK_companies_phone_pattern]
 
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
-	CONSTRAINT [companies_email_pattern]
+	CONSTRAINT [CK_companies_email_pattern]
 	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
 		AND [email] NOT LIKE '%@%@%' ))
 GO
 
 ALTER TABLE [dbo].[companies]
-CHECK CONSTRAINT [companies_email_pattern]
+CHECK CONSTRAINT [CK_companies_email_pattern]
 GO
 
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
-	CONSTRAINT [companies_NIP_pattern]
+	CONSTRAINT [CK_companies_NIP_pattern]
 	CHECK (( [NIP] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' ))
 GO
 
 ALTER TABLE [dbo].[companies]
-CHECK CONSTRAINT [companies_NIP_pattern]
+CHECK CONSTRAINT [CK_companies_NIP_pattern]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -503,11 +503,16 @@ WITH (PAD_INDEX = OFF,
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE
+ALTER TABLE [dbo].[discount_data]
 WITH CHECK ADD
-	CONSTRAINT [discount_type_pattern]
+	CONSTRAINT [CK_discount_type_pattern]
 	CHECK ([type] LIKE (( '[A-Z][0-9]' ))
 		OR [type] LIKE (('[A-Z][A-Z][0-9]')) )
+GO
+
+ALTER TABLE [dbo].[discount_data]
+CHECK CONSTRAINT [CK_discount_type_pattern]
+GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
@@ -590,7 +595,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### INDIVIDUAL
-Tabela przechowująca dane o klientach indywidualnych
+Tabela przechowująca dane o klientach indywidualnych. Rekord składa się z dwóch pól: identyfikatora osoby i identyfikatora klienta.
 ```sql
 USE [u_cyra_1]
 GO
@@ -658,7 +663,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU
-Tabela przechowująca dane o menu
+Tabela przechowująca dane o menu. Identyfikujemy je za pomocą klucza (`menu_id`), każde menu obowiązuje w wyznaczonych ramach czasowych: od `since_date` do `due_date`, `since_date`<`due_date`.
 ```sql
 USE [u_cyra_1]
 GO
@@ -683,6 +688,12 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[menu]
+WITH CHECK ADD
+	CONSTRAINT [CK_menu_dates)]
+	CHECK (( [since_date] < [due_date] ))
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -740,7 +751,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU_ITEMS
-Tabela przechowująca dane dotyczące pojedynczych dań mogących występować w menu
+Tabela przechowująca dane dotyczące pojedynczych dań mogących występować w menu.
 ```sql
 USE [u_cyra_1]
 GO
@@ -780,7 +791,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### ORDER_DETAILS
-Tabela przechowująca szczegółowe informacje dotyczące zamówienia
+Tabela przechowująca szczegółowe informacje dotyczące zamówienia.
 ```sql
 USE [u_cyra_1]
 GO
@@ -896,7 +907,12 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PERSON
-Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klientów firmowych oraz pracowników gastronomii
+Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klientów firmowych oraz pracowników gastronomii. Na dane osobowe składa się: identyfikator osoby (klucz główny), imię, nazwisko, email, numer telefonu, adres.
+
+Warunki integralnościowe:
+- adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu, nie może zawierać dwóch znaków '@'
+- telefon: unikalny, znaki numeryczne
 ```sql
 USE [u_cyra_1]
 GO
@@ -917,6 +933,24 @@ CREATE TABLE [dbo].[person](
 	
 CONSTRAINT [PK_person] PRIMARY KEY CLUSTERED (
 	[person_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_personal_phone] UNIQUE NONCLUSTERED (
+	[phone] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_personal_email] UNIQUE NONCLUSTERED (
+	[email] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -954,11 +988,30 @@ GO
 ALTER TABLE [dbo].[person]
 CHECK CONSTRAINT [FK_person_employees]
 GO
+
+ALTER TABLE [dbo].[person]
+WITH CHECK ADD
+	CONSTRAINT [personal_phone_pattern]
+	CHECK (( ISNUMERIC([phone]) ))
+
+ALTER TABLE [dbo].[person]
+CHECK CONSTRAINT [personal_phone_pattern]
+
+ALTER TABLE [dbo].[person]
+WITH CHECK ADD
+	CONSTRAINT [personal_email_pattern]
+	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
+		AND [email] NOT LIKE '%@%@%' ))
+GO
+
+ALTER TABLE [dbo].[person]
+CHECK CONSTRAINT [personal_email_pattern]
+GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PROGRAMS
-Tabela przechowująca dane o programach rabatowych
+Tabela przechowująca dane o programach rabatowych. Rekord składa się z identyfikatora (klucza głównego) oraz opisu programu rabatowego, wyświetlanego np. w ramch informacji dla klientów.
 ```sql
 USE [u_cyra_1]
 GO
@@ -987,7 +1040,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVABLE_TABLES
-Tabela przechowująca dane dotyczące stolików, które można rezerwować
+Tabela przechowująca dane dotyczące stolików, które można rezerwować. Ograniczenia dotyczące danego stolika obowiązują w czasie `since_date` do `due_date`, `since_date`<`due_date`. Wymagamy, aby liczba miejsc przy stoliku była większa od zera, stoliki których nie można rezerwować nie są przechowywane w tej tabeli.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1028,31 +1081,32 @@ GO
 
 ALTER TABLE [dbo].[reservable_tables]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservable_tables] CHECK  (([seats_no]>=(0)))
+	CONSTRAINT [CK_reservable_seats_no
+	CHECK (( [seats_no] > (0) ))
 GO
 
 ALTER TABLE [dbo].[reservable_tables]
-CHECK CONSTRAINT [CK_reservable_tables]
+CHECK CONSTRAINT [CK_reservable_seats_no]
 GO
 
 ALTER TABLE [dbo].[reservable_tables]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservable_tables_1] CHECK  (([since_date]<[due_date]))
+	CONSTRAINT [CK_reservable_tables_dates]
+	CHECK (( [since_date]<[due_date] ))
 GO
 
 ALTER TABLE [dbo].[reservable_tables]
-CHECK CONSTRAINT [CK_reservable_tables_1]
+CHECK CONSTRAINT [CK_reservable_tables_dates]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS
-Tabela przechowująca dane dotyczące rezerwacji
+Tabela przechowująca dane dotyczące rezerwacji. Rekord składa się z identyfikatora rezerwacji (klucz główny), identyfikatora klienta, identyfikatora stolika, dat od kiedy do kiedy zarezerwowano stolik (warunek: `date_start_time`<`date_end_time`) oraz informacji o tym, czy rezerwacja została zaakceptowana przez obsługę (`is_accepted`).
 ```sql
 USE [u_cyra_1]
 GO
 
-/****** Object:  Table [dbo].[reservations]    Script Date: 24.12.2020 16:09:35 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -1100,17 +1154,18 @@ GO
 
 ALTER TABLE [dbo].[reservations]
 WITH CHECK ADD
-	CONSTRAINT [CK_reservations] CHECK (([date_start_time]<[date_endtime]))
+	CONSTRAINT [CK_reservations_date_check]
+	CHECK (( [date_start_time] < [date_endtime] ))
 GO
 
 ALTER TABLE [dbo].[reservations]
-CHECK CONSTRAINT [CK_reservations]
+CHECK CONSTRAINT [CK_reservations_date_check]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS_COLLECTOR
-Tabela przechowująca dane o osobach przypisanych do danej rezerwacji
+Tabela przechowująca dane o osobach przypisanych do danej rezerwacji.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1160,7 +1215,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS_ORDERS
-Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji
+Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1210,7 +1265,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### STATUS_DICTIONARY
-Słownik statusów, w których może znajdować się zamówienie
+Słownik statusów, w których może znajdować się zamówienie: upaid, paid, ready
 ```sql
 USE [u_cyra_1]
 GO
@@ -1239,7 +1294,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### TABLES
-Tabela przechowująca informacje o stolikach, które znajdują się na stanie.
+Tabela przechowująca informacje o stolikach, które znajdują się na stanie. Rekord składa się z identyfikatora stolika (klucz główny `table_id`) orz maksymalnej liczby miejsc przy stoliku (liczba >0).
 ```sql
 USE [u_cyra_1]
 GO
@@ -1263,6 +1318,16 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tables]
+WITH CHECK ADD
+	CONSTRAINT [CK_table_max_seats_no
+	CHECK (( [max_seats_no] > (0) ))
+GO
+
+ALTER TABLE [dbo].[reservable_tables]
+CHECK CONSTRAINT [CK_table_max_seats_no]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
