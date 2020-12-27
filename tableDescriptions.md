@@ -1380,7 +1380,7 @@ GO
 
 ALTER TABLE [dbo].[tables]
 WITH CHECK ADD
-	CONSTRAINT [CK_table_max_seats_no
+	CONSTRAINT [CK_table_max_seats_no]
 	CHECK (( [max_seats_no] > (0) ))
 GO
 
