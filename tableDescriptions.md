@@ -760,7 +760,7 @@ WITH CHECK ADD
 	CHECK (( [is_available] in (0, 1) ))
 GO
 
-ALTER TABLE [dbo].[reservations]
+ALTER TABLE [dbo].[menu_details]
 CHECK CONSTRAINT [CK_menu_is_available_value]
 GO
 ```
