@@ -164,7 +164,7 @@ Tabela przechowująca dane o klientach firmowych: identyfikator firmy oraz klien
 Warunki integralnościowe:
 - numer klienta `customer_id` jest unikalny (połączenie 1-to-1 z tabelą [Customers](tableDescriptions.md#customers))
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
-- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@'
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@', nie może zawierać spacji
 - NIP (`NIP`): unikalny, 10 cyfr
 - telefon (`phone`): unikalny, znaki numeryczne
 ```sql
@@ -274,7 +274,8 @@ ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
 	CONSTRAINT [CK_companies_email_pattern]
 	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
-		AND [email] NOT LIKE '%@%@%' ))
+		AND [email] NOT LIKE '%@%@%'
+		AND [email] NOT LIKE '% %'))
 GO
 
 ALTER TABLE [dbo].[companies]
@@ -911,7 +912,7 @@ Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klient
 
 Warunki integralnościowe:
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
-- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@'
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@', nie może zawierać spacji
 - telefon: unikalny, znaki numeryczne
 ```sql
 USE [u_cyra_1]
@@ -1001,7 +1002,8 @@ ALTER TABLE [dbo].[person]
 WITH CHECK ADD
 	CONSTRAINT [personal_email_pattern]
 	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
-		AND [email] NOT LIKE '%@%@%' ))
+		AND [email] NOT LIKE '%@%@%'
+		AND [email] NOT LIKE '% %' ))
 GO
 
 ALTER TABLE [dbo].[person]
