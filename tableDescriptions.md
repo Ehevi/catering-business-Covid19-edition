@@ -273,18 +273,23 @@ CHECK CONSTRAINT [companies_phone_pattern]
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
 	CONSTRAINT [companies_email_pattern]
-	CHECK (( [email] LIKE '_%@%_' ))
+	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
+		AND [email] NOT LIKE '%@%@%' ))
+GO
 
 ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [companies_email_pattern]
+GO
 
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
 	CONSTRAINT [companies_NIP_pattern]
-	CHECK (( [NIP] LIKE '[0-9]{10}' ))
+	CHECK (( [NIP] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' ))
+GO
 
 ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [companies_NIP_pattern]
+GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
