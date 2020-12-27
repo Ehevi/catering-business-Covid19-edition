@@ -345,7 +345,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### COUNTRIES
-Słownik państw występujących w adresach osobowych i firmowych. Nazwy państw są unikalne.
+Słownik (pary identfikator + nazwa) państw występujących w adresach osobowych i firmowych. Nazwy państw są unikalne.
 ```sql
 USE [u_cyra_1]
 GO
@@ -792,7 +792,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### ORDER_DETAILS
-Tabela przechowująca szczegółowe informacje dotyczące zamówienia.
+Tabela przechowująca szczegółowe informacje dotyczące zamówienia. Rekord zawiera identyfikator zamówienia, identyfikator zamówionej pozycji menu, jej cenę, ilość, oraz ewentualny rabat (domyślnie 0).
 ```sql
 USE [u_cyra_1]
 GO
@@ -820,6 +820,12 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[order_details]
+ADD
+	CONSTRAINT [DF_item_discount]
+	DEFAULT ( (0) ) FOR [item_discount]
 GO
 
 ALTER TABLE [dbo].[order_details]
@@ -1104,7 +1110,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS
-Tabela przechowująca dane dotyczące rezerwacji. Rekord składa się z identyfikatora rezerwacji (klucz główny), identyfikatora klienta, identyfikatora stolika, dat od kiedy do kiedy zarezerwowano stolik (warunek: `date_start_time`<`date_end_time`) oraz informacji o tym, czy rezerwacja została zaakceptowana przez obsługę (`is_accepted`).
+Tabela przechowująca dane dotyczące rezerwacji. Rekord składa się z identyfikatora rezerwacji (klucz główny), identyfikatora klienta, identyfikatora stolika, dat od kiedy do kiedy zarezerwowano stolik (warunek: `date_start_time`<`date_end_time`) oraz informacji o tym, czy rezerwacja została zaakceptowana przez obsługę (`is_accepted`). Pole `is_accepted` przechowuje wartości liczbowe {0, 1} interpretowane jako {NIE, TAK}.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1163,6 +1169,16 @@ GO
 ALTER TABLE [dbo].[reservations]
 CHECK CONSTRAINT [CK_reservations_date_check]
 GO
+
+ALTER TABLE [dbo].[reservations]
+WITH CHECK ADD
+	CONSTRAINT [CK_reservations_is_acctepted_value]
+	CHECK (( [is_accepted] in (0, 1) ))
+GO
+
+ALTER TABLE [dbo].[reservations]
+CHECK CONSTRAINT [CK_reservations_is_accepted_value]
+GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
@@ -1217,7 +1233,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS_ORDERS
-Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji.
+Tabela przechowująca infomacje o przypisaniu zamówień do rezerwacji. Przechowuje pary identyfikatorów: rezerwacja-zamówienie.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1267,7 +1283,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### STATUS_DICTIONARY
-Słownik statusów, w których może znajdować się zamówienie: upaid, paid, ready
+Słownik (pary identyfikator + nazwa) statusów, w których może znajdować się zamówienie. Nazwy statusów są unikalne.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1284,6 +1300,15 @@ CREATE TABLE [dbo].[status_dictionary](
 
 CONSTRAINT [PK_status_dictionary] PRIMARY KEY CLUSTERED (
 	[status_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_status_name] UNIQUE NONCLUSTERED (
+	[status_name] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
