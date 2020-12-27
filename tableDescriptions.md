@@ -463,7 +463,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### DISCOUNT_DATA
-Tabela przechowująca dane dotyczące zmiennych występujących jako wartości liczbowe w poszczególnych programach rabatowych.
+Tabela przechowująca dane dotyczące zmiennych występujących jako wartości liczbowe w poszczególnych programach rabatowych. Rekord składa się z danych przechowywanych w trzech kolumnach: identyfikator, typ (`type`) oraz wartość (`value`). Typ jest unikalny oraz jest postaci litera/y + liczba porządkowa, np. Z1, K1, K2, K2, FK1, FK2 itp.
 ```sql
 USE [u_cyra_1]
 GO
@@ -486,9 +486,23 @@ WITH (PAD_INDEX = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
 	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+	
+CONSTRAINT [UQ_discount_type] UNIQUE NONCLUSTERED (
+	[discount_type] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+ALTER TABLE
+WITH CHECK ADD
+	CONSTRAINT [discount_type_pattern]
+	CHECK ([type] LIKE (( '[A-Z]*[0-9]*' )) )
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
