@@ -692,7 +692,7 @@ GO
 
 ALTER TABLE [dbo].[menu]
 WITH CHECK ADD
-	CONSTRAINT [CK_menu_dates)]
+	CONSTRAINT [CK_menu_dates]
 	CHECK (( [since_date] < [due_date] ))
 GO
 ```
