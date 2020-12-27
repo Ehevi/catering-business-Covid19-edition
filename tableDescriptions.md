@@ -164,7 +164,7 @@ Tabela przechowująca dane o klientach firmowych: identyfikator firmy oraz klien
 Warunki integralnościowe:
 - numer klienta `customer_id` jest unikalny (połączenie 1-to-1 z tabelą [Customers](tableDescriptions.md#customers))
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
-- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu, nie może zawierać dwóch znaków '@'
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@'
 - NIP (`NIP`): unikalny, 10 cyfr
 - telefon (`phone`): unikalny, znaki numeryczne
 ```sql
@@ -911,7 +911,7 @@ Tabela przechowująca dane osobowe klientów indywidualnych, pracowników klient
 
 Warunki integralnościowe:
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
-- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu, nie może zawierać dwóch znaków '@'
+- email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku (litera bądź cyfra) z każdej strony symbolu, nie może zawierać dwóch znaków '@'
 - telefon: unikalny, znaki numeryczne
 ```sql
 USE [u_cyra_1]
