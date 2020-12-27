@@ -621,7 +621,7 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_I_Customer_ID] UNIQUE NONCLUSTERED (
+CONSTRAINT [UQ_customer_ID] UNIQUE NONCLUSTERED (
 	[customer_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
@@ -630,7 +630,7 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 	
-CONSTRAINT [Unique_I_person_ID] UNIQUE NONCLUSTERED (
+CONSTRAINT [UQ_person_ID] UNIQUE NONCLUSTERED (
 	[person_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
@@ -700,7 +700,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### MENU_DETAILS
-Tabela przechowująca informacje szczegółowe dotyczące poszczególnych menu.
+Tabela przechowująca informacje szczegółowe dotyczące poszczególnych menu. Rekord składa się z identyfikatora menu, identyfikatora pozycji menu, znacznika, czy dana pozycja jest aktualnie dostępna (domyślnie tak) oraz ceny jednostkowej danej pozycji. Dostępność pozycji jest opisana w kolumnie `is_available`, której wartości są {0, 1} są interpretowane jako {NIE, TAK}.
 ```sql
 USE [u_cyra_1]
 GO
@@ -730,6 +730,12 @@ WITH (PAD_INDEX = OFF,
 GO
 
 ALTER TABLE [dbo].[menu_details]
+ADD
+	CONSTRAINT [DF_is_available]
+	DEFAULT ( (1) ) FOR [is_available]
+GO
+
+ALTER TABLE [dbo].[menu_details]
 WITH CHECK ADD
 	CONSTRAINT [FK_menu_details_menu_items] FOREIGN KEY([item_id])
 	REFERENCES [dbo].[menu_items] ([item_id])
@@ -747,6 +753,16 @@ GO
 
 ALTER TABLE [dbo].[menu_details]
 CHECK CONSTRAINT [FK_menu_details_menu1]
+GO
+
+ALTER TABLE [dbo].[menu_details]
+WITH CHECK ADD
+	CONSTRAINT [CK_menu_is_available_value]
+	CHECK (( [is_available] in (0, 1) ))
+GO
+
+ALTER TABLE [dbo].[reservations]
+CHECK CONSTRAINT [CK_menu_is_available_value]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -851,7 +867,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### ORDERS
-Tabela przechowująca dane o składanych zamówieniach
+Tabela przechowująca dane o składanych zamówieniach. Rekord składa się z identyfikatora zamówienia, identyfikatora klienta, identyfikatora pracownika obsługującego zamówienie, daty złożenia zamówienia i jego odbioru (warunek: `order_date`<`collection_date`) oraz statusu , w którym obecnie znajduje się zamówienie (tłumaczonego w słowniku [Status Dictionary](tableDescriptions.md#status_dictionary))
 ```sql
 USE [u_cyra_1]
 GO
@@ -910,6 +926,16 @@ GO
 ALTER TABLE [dbo].[orders]
 CHECK CONSTRAINT [FK_orders_status_dictionary]
 GO
+
+ALTER TABLE [dbo].[orders]
+WITH CHECK ADD
+	CONSTRAINT [CK_order_dates]
+	CHECK (( [order_date]<[collection_date] ))
+GO
+
+ALTER TABLE [dbo].[orders]
+CHECK CONSTRAINT [CK_order_dates]
+GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
@@ -965,7 +991,7 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [Unique_Personal_Address] UNIQUE NONCLUSTERED (
+CONSTRAINT [UQ_personal_address] UNIQUE NONCLUSTERED (
 	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
@@ -998,28 +1024,28 @@ GO
 
 ALTER TABLE [dbo].[person]
 WITH CHECK ADD
-	CONSTRAINT [personal_phone_pattern]
+	CONSTRAINT [CK_personal_phone_pattern]
 	CHECK (( ISNUMERIC([phone]) ))
 
 ALTER TABLE [dbo].[person]
-CHECK CONSTRAINT [personal_phone_pattern]
+CHECK CONSTRAINT [CK_personal_phone_pattern]
 
 ALTER TABLE [dbo].[person]
 WITH CHECK ADD
-	CONSTRAINT [personal_email_pattern]
+	CONSTRAINT [CK_personal_email_pattern]
 	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
 		AND [email] NOT LIKE '%@%@%'
 		AND [email] NOT LIKE '% %' ))
 GO
 
 ALTER TABLE [dbo].[person]
-CHECK CONSTRAINT [personal_email_pattern]
+CHECK CONSTRAINT [CK_personal_email_pattern]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PROGRAMS
-Tabela przechowująca dane o programach rabatowych. Rekord składa się z identyfikatora (klucza głównego) oraz opisu programu rabatowego, wyświetlanego np. w ramch informacji dla klientów.
+Tabela przechowująca dane o programach rabatowych. Rekord składa się z identyfikatora (klucza głównego) oraz opisu programu rabatowego, wyświetlanego np. w ramach informacji dla klientów.
 ```sql
 USE [u_cyra_1]
 GO
@@ -1110,7 +1136,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### RESERVATIONS
-Tabela przechowująca dane dotyczące rezerwacji. Rekord składa się z identyfikatora rezerwacji (klucz główny), identyfikatora klienta, identyfikatora stolika, dat od kiedy do kiedy zarezerwowano stolik (warunek: `date_start_time`<`date_end_time`) oraz informacji o tym, czy rezerwacja została zaakceptowana przez obsługę (`is_accepted`). Pole `is_accepted` przechowuje wartości liczbowe {0, 1} interpretowane jako {NIE, TAK}.
+Tabela przechowująca dane dotyczące rezerwacji. Rekord składa się z identyfikatora rezerwacji (klucz główny), identyfikatora klienta, identyfikatora stolika, dat od kiedy do kiedy zarezerwowano stolik (warunek: `date_start_time`<`date_end_time`) oraz informacji o tym, czy rezerwacja została zaakceptowana przez obsługę (`is_accepted`). Pole `is_accepted` przechowuje wartości liczbowe {0, 1} interpretowane jako {NIE, TAK}. Domyślna wartość tego pola to 0 (przed akceptacją przez obsługę).
 ```sql
 USE [u_cyra_1]
 GO
@@ -1138,6 +1164,12 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[reservations]
+ADD
+	CONSTRAINT [DF_is_accepted]
+	DEFAULT ( (0) ) FOR [is_accepted]
 GO
 
 ALTER TABLE [dbo].[reservations]
