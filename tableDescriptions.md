@@ -1384,7 +1384,7 @@ WITH CHECK ADD
 	CHECK (( [max_seats_no] > (0) ))
 GO
 
-ALTER TABLE [dbo].[reservable_tables]
+ALTER TABLE [dbo].[tables]
 CHECK CONSTRAINT [CK_table_max_seats_no]
 GO
 ```
