@@ -166,7 +166,7 @@ Warunki integralnościowe:
 - adres: unikalny (połączenie 1-to-1 z tabelą [Address](tableDescriptions.md#address))
 - email: unikalny, ponadto zawiera symbol '@' oraz po co najmniej jednym znaku z każdej strony symbolu
 - NIP (`NIP`): unikalny, 10 cyfr
-- telefon (`phone`): unikalny, wyłącznie znaki numeryczne, min. 9 cyfr ewentualnie oddzielonych spacjami, możliwość poprzedzenia całości numerem kierunkowym
+- telefon (`phone`): unikalny, znaki numeryczne
 ```sql
 USE [u_cyra_1]
 GO
@@ -265,8 +265,7 @@ GO
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
 	CONSTRAINT [companies_phone_pattern]
-	CHECK (( [phone] LIKE '[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*'
-		OR [phone] LIKE '+([0-9][0-9])[:space:]*[0-9]{3}[:space:]*[0-9]{3}[:space:]*[0-9]{3}[0-9]*' ))
+	CHECK (( ISNUMERIC([phone]) ))
 
 ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [companies_phone_pattern]
