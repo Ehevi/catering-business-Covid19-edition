@@ -502,7 +502,8 @@ GO
 ALTER TABLE
 WITH CHECK ADD
 	CONSTRAINT [discount_type_pattern]
-	CHECK ([type] LIKE (( '[A-Z]*[0-9]*' )) )
+	CHECK ([type] LIKE (( '[A-Z][0-9]' ))
+		OR [type] LIKE (('[A-Z][A-Z][0-9]')) )
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
