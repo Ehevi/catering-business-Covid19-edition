@@ -1152,7 +1152,7 @@ CREATE TABLE [dbo].[reservations](
 	[table_id] [int] NOT NULL,
 	[date_start_time] [datetime2](7) NOT NULL,
 	[date_endtime] [datetime2](7) NOT NULL,
-	[is_acepted] [int] NOT NULL,
+	[is_accepted] [int] NOT NULL,
 	
 CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED(
 	[reservation_id] ASC)
