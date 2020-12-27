@@ -435,6 +435,12 @@ WITH (PAD_INDEX = OFF,
 GO
 
 ALTER TABLE [dbo].[customers_discounts]
+ADD
+	CONSTRAINT [DF_date_start_time]
+	DEFAULT (getdate()) FOR [date_start_time]
+GO
+
+ALTER TABLE [dbo].[customers_discounts]
 WITH CHECK ADD
 	CONSTRAINT [FK_customers_discounts_customers] FOREIGN KEY([customer_id])
 	REFERENCES [dbo].[customers] ([customer_id])
