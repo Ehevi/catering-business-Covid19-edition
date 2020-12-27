@@ -264,7 +264,7 @@ GO
 ALTER TABLE [dbo].[companies]
 WITH CHECK ADD
 	CONSTRAINT [CK_companies_phone_pattern]
-	CHECK (( ISNUMERIC([phone]) ))
+	CHECK (( ISNUMERIC([phone])=1 ))
 
 ALTER TABLE [dbo].[companies]
 CHECK CONSTRAINT [CK_companies_phone_pattern]
@@ -1024,7 +1024,7 @@ GO
 ALTER TABLE [dbo].[person]
 WITH CHECK ADD
 	CONSTRAINT [CK_personal_phone_pattern]
-	CHECK (( ISNUMERIC([phone]) ))
+	CHECK (( ISNUMERIC([phone])=1 ))
 
 ALTER TABLE [dbo].[person]
 CHECK CONSTRAINT [CK_personal_phone_pattern]
