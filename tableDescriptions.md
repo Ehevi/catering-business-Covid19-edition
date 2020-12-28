@@ -13,7 +13,7 @@ Tabela przechowująca dane o adresach osobowych i firmowych.
 
 Każdy rekord zawiera identyfikator: `address_id`, który jest kluczem głównym tabeli.
 Zawartość kolumny `street` to adres rozumiany jako ulica z przypisanym numerem domu lub/i mieszkania.
-Dalej zajduje się kod pocztowy `postal_code`. Może on być postaci XX-XXX | XXXXXX | XXXXXXX, gdzie X jest cyfrą 0-9.
+Dalej znajduje się kod pocztowy `postal_code`. Może on być postaci XX-XXX | XXXXXX | XXXXXXX, gdzie X jest cyfrą 0-9.
 Ponadto klucz obcy `city_id` pozwala zidentyfikować miasto przypisane do adresu (tabela słownikowa [Cities](tableDescriptions.md#cities)).
 ```sql
 USE [u_cyra_1]
@@ -107,9 +107,9 @@ GO
 ### CITIES
 Tabela przechowująca dane o miastach znajdujących się w bazie danych.
 
-Miasta identyfikowane są za pomocą klucza głównego `city_id`, rekord zawiera także informację o nazwie miasta (`city_name`) oraz klucz główny `country_id` wskazujący na rekord w tabeli słownikowej państw ([Countries](tableDescriptions.md#countries)), określający gdzie znajduje się dana miejscowość.
+Miasta identyfikowane są za pomocą klucza głównego `city_id`, rekord zawiera także informację o nazwie miasta (`city_name`) oraz klucz obcy `country_id` wskazujący na rekord w tabeli słownikowej państw ([Countries](tableDescriptions.md#countries)), określający gdzie znajduje się dana miejscowość.
 
-Nazwy miast są unikalne, mimo że w obrębie jednego państwa może znajdować się kilka miejscowości o tej samej nazwie, ponieważ tabela przechowuje tylko ich nazwy, nie służy do jednoznaczej identyfikacji. Ta ma miejsce o jeden krok "wyżej" w hierarchii: w tabeli [Address](tableDescriptions.md#address), gdzie przechowywany jest kod pocztowy (kod pocztowy nie jest przechowywany w tabeli miast, ponieważ czasami różni się w zależności od dzielnicy danego miasta).
+Nazwy miast są unikalne, mimo że w obrębie jednego państwa może znajdować się kilka miejscowości o tej samej nazwie, ponieważ tabela przechowuje tylko ich nazwy, nie służy do jednoznacznej identyfikacji. Ta ma miejsce o jeden krok "wyżej" w hierarchii: w tabeli [Address](tableDescriptions.md#address), gdzie przechowywany jest kod pocztowy (kod pocztowy nie jest przechowywany w tabeli miast, ponieważ czasami różni się w zależności od dzielnicy danego miasta).
 ```sql
 USE [u_cyra_1]
 GO
@@ -409,7 +409,7 @@ GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
-### CUSTOMERS_DICSOUNTS
+### CUSTOMERS_DISCOUNTS
 Tabela przechowująca dane o programach rabatowych poszczególnych klientów. Na pojedynczy rekord w tabeli składa się identyfikator klienta, identyfikator programu oraz `date_start_time`: czas rozpoczęcia możliwości korzystania przez klienta ze zniżek przewidzianych w programie (niektóre programy są ograniczone czasowo). Defaultowo jest to moment tworzenia nowego rekordu.
 ```sql
 USE [u_cyra_1]
