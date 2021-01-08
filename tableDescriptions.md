@@ -580,6 +580,7 @@ GO
 
 CREATE TABLE [dbo].[employees](
 	[employee_id] [int] NOT NULL,
+	[person_id] [int] NULL,
 
 CONSTRAINT [PK_employees] PRIMARY KEY CLUSTERED (
 	[employee_id] ASC)
@@ -588,8 +589,27 @@ WITH (PAD_INDEX = OFF,
 	IGNORE_DUP_KEY = OFF,
 	ALLOW_ROW_LOCKS = ON,
 	ALLOW_PAGE_LOCKS = ON,
+	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+
+CONSTRAINT [UQ_person_id] UNIQUE NONCLUSTERED (
+	[person_id] ASC)
+WITH (PAD_INDEX = OFF,
+	STATISTICS_NORECOMPUTE = OFF,
+	IGNORE_DUP_KEY = OFF,
+	ALLOW_ROW_LOCKS = ON,
+	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[employees]
+WITH CHECK ADD
+	CONSTRAINT [FK_employees_person] FOREIGN KEY([person_id])
+	REFERENCES [dbo].[person] ([person_id])
+GO
+
+ALTER TABLE [dbo].[employees]
+CHECK CONSTRAINT [FK_employees_person]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
