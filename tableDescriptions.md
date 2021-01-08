@@ -962,7 +962,7 @@ CREATE TABLE [dbo].[person](
 	[email] [nvarchar](50) NOT NULL,
 	[phone] [nvarchar](50) NOT NULL,
 	[address_id] [int] NOT NULL,
-	
+
 CONSTRAINT [PK_person] PRIMARY KEY CLUSTERED (
 	[person_id] ASC)
 WITH (PAD_INDEX = OFF,
@@ -972,8 +972,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [UQ_personal_phone] UNIQUE NONCLUSTERED (
-	[phone] ASC)
+CONSTRAINT [UQ_personal_address] UNIQUE NONCLUSTERED (
+	[address_id] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -990,8 +990,8 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
 
-CONSTRAINT [UQ_personal_address] UNIQUE NONCLUSTERED (
-	[address_id] ASC)
+CONSTRAINT [UQ_personal_phone] UNIQUE NONCLUSTERED (
+	[phone] ASC)
 WITH (PAD_INDEX = OFF,
 	STATISTICS_NORECOMPUTE = OFF,
 	IGNORE_DUP_KEY = OFF,
@@ -1013,32 +1013,24 @@ GO
 
 ALTER TABLE [dbo].[person]
 WITH CHECK ADD
-	CONSTRAINT [FK_person_employees] FOREIGN KEY([person_id])
-	REFERENCES [dbo].[employees] ([employee_id])
+	CONSTRAINT [CK_personal_email_pattern]
+	CHECK (([email] like '[a-z0-9]%@%[a-z0-9]'
+		AND NOT [email] like '%@%@%'
+		AND NOT [email] like '% %'))
 GO
 
 ALTER TABLE [dbo].[person]
-CHECK CONSTRAINT [FK_person_employees]
+CHECK CONSTRAINT [CK_personal_email_pattern]
 GO
 
 ALTER TABLE [dbo].[person]
 WITH CHECK ADD
 	CONSTRAINT [CK_personal_phone_pattern]
-	CHECK (( ISNUMERIC([phone])=1 ))
-
-ALTER TABLE [dbo].[person]
-CHECK CONSTRAINT [CK_personal_phone_pattern]
-
-ALTER TABLE [dbo].[person]
-WITH CHECK ADD
-	CONSTRAINT [CK_personal_email_pattern]
-	CHECK (( [email] LIKE '[a-z0-9]%@%[a-z0-9]'
-		AND [email] NOT LIKE '%@%@%'
-		AND [email] NOT LIKE '% %' ))
+	CHECK ((ISNUMERIC([phone])=(1)))
 GO
 
 ALTER TABLE [dbo].[person]
-CHECK CONSTRAINT [CK_personal_email_pattern]
+CHECK CONSTRAINT [CK_personal_phone_pattern]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
