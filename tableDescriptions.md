@@ -580,7 +580,7 @@ GO
 
 CREATE TABLE [dbo].[employees](
 	[employee_id] [int] NOT NULL,
-	[person_id] [int] NULL,
+	[person_id] [int] NOT NULL,
 
 CONSTRAINT [PK_employees] PRIMARY KEY CLUSTERED (
 	[employee_id] ASC)
