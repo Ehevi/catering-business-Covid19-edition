@@ -579,7 +579,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[employees](
-	[employee_id] [int] NOT NULL,
+	[employee_id] [int] IDENTITY(1,1) NOT NULL,
 	[person_id] [int] NOT NULL,
 
 CONSTRAINT [PK_employees] PRIMARY KEY CLUSTERED (
