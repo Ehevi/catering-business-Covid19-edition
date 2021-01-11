@@ -56,6 +56,8 @@ ALTER TABLE [dbo].[address]
 WITH CHECK ADD
 	CONSTRAINT [CK_address_postal_code]
 	CHECK (( [postal_code] LIKE '[0-9][0-9]-[0-9][0-9][0-9]'
+		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9]'
+		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9]'
 		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9]'
 		OR [postal_code] LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9]' ))
 		
