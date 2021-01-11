@@ -394,7 +394,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[customers](
-	[customer_id] [int] IDENTITY(1,1) NOT NULL,
+	[customer_id] [int] NOT NULL,
 
 CONSTRAINT [PK_customers] PRIMARY KEY CLUSTERED (
 	[customer_id] ASC)
@@ -696,8 +696,8 @@ GO
 
 CREATE TABLE [dbo].[menu](
 	[menu_id] [int] IDENTITY(1,1) NOT NULL,
-	[since_date] [datetime2](7) NOT NULL,
-	[due_date] [datetime2](7) NOT NULL,
+	[since_date] [date] NOT NULL,
+	[due_date] [date] NOT NULL,
 	
 CONSTRAINT [PK_menu] PRIMARY KEY CLUSTERED (
 	[menu_id] ASC)
@@ -1100,8 +1100,8 @@ CREATE TABLE [dbo].[reservable_tables](
 	[res_table_id] [int] IDENTITY(1,1) NOT NULL,
 	[table_id] [int] NOT NULL,
 	[seats_no] [int] NOT NULL,
-	[since_date] [datetime2](7) NOT NULL,
-	[due_date] [datetime2](7) NOT NULL,
+	[since_date] [date] NOT NULL,
+	[due_date] [date] NOT NULL,
 
 CONSTRAINT [PK_reservable_tables] PRIMARY KEY CLUSTERED (
 	[res_table_id] ASC)
