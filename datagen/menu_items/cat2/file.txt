@@ -1,0 +1,40 @@
+espresso
+latte macchiato
+caramel macchiato
+flat white
+cappuccino
+doppio
+Irish coffee
+Americano
+Cafe Latte
+Amanzi Sencha Tea
+Gunpowder Tea
+Matcha Tea
+Moroccan Mint Tea
+Jasmine Pearl Tea
+Wuyi Tea
+English Breakfast Tea
+Assam Tea
+Earl Grey Tea
+Black Ceylon Tea
+Amanzi Red Tea
+Thai Green Tea
+Sencha Wakame Tea
+Zesty Lemongrass Tea
+Cinnamon Spice Tea
+Vanilla Chai Tea
+Tropical Forest Tea
+Caramel Mate Tea
+Orange Truffle Tea
+Mint Chocolate Tea
+Rooibos
+Yerba Mate
+Oolong
+napar z miety
+napar z kopru wloskiego
+napar z rumianku
+napar z melisy
+napar z czystka
+goraca czekolada gorzka
+goraca czekolada mleczna
+goraca czekolada biala

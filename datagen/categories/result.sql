@@ -1,0 +1,14 @@
+INSERT INTO categories(category_name) VALUES ('ryby i owoce morza');
+INSERT INTO categories(category_name) VALUES ('napoje cieple');
+INSERT INTO categories(category_name) VALUES ('napoje zimne');
+INSERT INTO categories(category_name) VALUES ('kanapki');
+INSERT INTO categories(category_name) VALUES ('desery');
+INSERT INTO categories(category_name) VALUES ('koktajle');
+INSERT INTO categories(category_name) VALUES ('zupy');
+INSERT INTO categories(category_name) VALUES ('makarony');
+INSERT INTO categories(category_name) VALUES ('salaty');
+INSERT INTO categories(category_name) VALUES ('pizza');
+INSERT INTO categories(category_name) VALUES ('przekaski');
+INSERT INTO categories(category_name) VALUES ('ciasta i ciasteczka');
+INSERT INTO categories(category_name) VALUES ('pierogi');
+INSERT INTO categories(category_name) VALUES ('owsianki');
