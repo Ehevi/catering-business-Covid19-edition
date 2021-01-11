@@ -6,10 +6,6 @@
 #include <ctime>
 using namespace std;
 
-// address_ids: od 323 do 53102
-// ( std::rand() % 50 ) + 7; == przedział od 7 do 56
-// przedział od 1 do 9 ==> (rand() %9)+1
-// cyfra losowa ==> (rand() % 10)
 string getRandDigit(){
     string result="";
     int number;
