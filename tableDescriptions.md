@@ -426,7 +426,7 @@ GO
 CREATE TABLE [dbo].[customers_discounts](
 	[customer_id] [int] NOT NULL,
 	[program_id] [int] NOT NULL,
-	[date_start_time] [datetime2](7) NOT NULL,
+	[date_start_time] [datetime] NOT NULL,
 
 CONSTRAINT [PK_customers_discounts] PRIMARY KEY CLUSTERED (
 	[customer_id] ASC,
@@ -903,8 +903,8 @@ CREATE TABLE [dbo].[orders](
 	[order_id] [int] IDENTITY(1,1) NOT NULL,
 	[customer_id] [int] NOT NULL,
 	[employee_id] [int] NOT NULL,
-	[order_date] [datetime2](7) NOT NULL,
-	[collection_date] [datetime2](7) NOT NULL,
+	[order_date] [datetime] NOT NULL,
+	[collection_date] [datetime] NOT NULL,
 	[status] [int] NOT NULL,
 	
 CONSTRAINT [PK_orders] PRIMARY KEY CLUSTERED (
@@ -1164,8 +1164,8 @@ CREATE TABLE [dbo].[reservations](
 	[reservation_id] [int] IDENTITY(1,1) NOT NULL,
 	[customer_id] [int] NOT NULL,
 	[table_id] [int] NOT NULL,
-	[date_start_time] [datetime2](7) NOT NULL,
-	[date_endtime] [datetime2](7) NOT NULL,
+	[date_start_time] [datetime] NOT NULL,
+	[date_endtime] [datetime] NOT NULL,
 	[is_accepted] [int] NOT NULL,
 	
 CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED(

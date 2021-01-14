@@ -171,7 +171,7 @@ int main(){
     int log_id = 1;
     // zapełniamy bazę zamówieniami od 01.01.2018 do 18.01.2021
     while (printdate.year < 2021 || printdate.day < 18){
-        printTime.hour = 10;
+        printTime.hour = 10;  
         printTime.minute = 0;
         while(printTime.hour < 20){
             fileResult << str;
