@@ -7,7 +7,7 @@
 using namespace std;
 
 int getRandItem(){
-    int number = (rand() % 156 );
+    int number = (rand() % 156 )+2;
     return number;
     // plik items.txt ma 156 linii
 }
@@ -39,10 +39,11 @@ int main(){
     string line;
     ifstream items ("items.txt");
     string str = "INSERT INTO order_details(order_id, item_id, item_price, item_quantity) VALUES(";
+    int menu_id = 1; // 4, 7, 10, 13, ...
     if (items.is_open())
     {
-        int order_id=25201;
-        while(order_id<33601){
+        int order_id=((menu_id-1)*8400)+1;
+        while(order_id<((menu_id * 8400)+1)){
            for(int counter=0; counter<getRandQuantity(); counter++){
                 myfileRESULT << str << order_id <<", ";
                 for(int i=0; i<getRandItem(); i++){
