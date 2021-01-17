@@ -11,7 +11,7 @@ from orders o inner join order_details od
 on o.order_id=od.order_id
 where o.customer_id=1
 group by o.order_id
-having sum(od.item_price*od.item_quantity)>=30;
+having sum(od.item_price*od.item_quantity)>30;
 
 --- sumy wszystkich zamówień klienta o id=1 za minimum 30zł razem z datą zamówienia
 select o.order_id, o.order_date, sum(od.item_price*od.item_quantity) as 'suma zamówienia'
@@ -19,7 +19,7 @@ from orders o inner join order_details od
 on o.order_id=od.order_id
 where o.customer_id=1
 group by o.order_id, o.order_date
-having sum(od.item_price*od.item_quantity)>=30;
+having sum(od.item_price*od.item_quantity)>30;
 
 --- sumy wszystkich zamówień klienta o id=1 za minimum 30zł razem z datą zamówienia, ale tylko dla zamówień zrealizowanych
 select o.order_id, o.order_date, sum(od.item_price*od.item_quantity) as 'suma zamówienia'
@@ -27,7 +27,7 @@ from orders o inner join order_details od
 on o.order_id=od.order_id
 where o.customer_id=1 and o.status=4
 group by o.order_id, o.order_date
-having sum(od.item_price*od.item_quantity)>=30;
+having sum(od.item_price*od.item_quantity)>30;
 
 --- ograniczone do 10 pierwszych zamówień
 select top 10 o.order_id, o.order_date, sum(od.item_price*od.item_quantity) as 'suma zamówienia'
