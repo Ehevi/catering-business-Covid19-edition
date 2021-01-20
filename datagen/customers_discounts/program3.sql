@@ -85,3 +85,30 @@ set @customer_id=@customer_id+1
 end
 
 --- K2 = 1000, K3=5000 [dlatego uzupełniamy tabelę newTable dopóki suma za dotychczasowe zamówienia jest mniejsza od 5000]
+
+--- optymalizacja
+declare @i int = 1
+declare @customer_id int =1
+while(@customer_id<3000)
+begin
+	if(@customer_id in (select customer_id from individual))
+	begin
+		set @i = 1
+		while(@i<667801)
+		begin
+			with cte as (select o.customer_id, o.order_id, sum(od.item_price*od.item_quantity) s
+			from order_details od inner join orders o
+			on od.order_id=o.order_id
+			where o.customer_id=@customer_id and o.status=4 and o.customer_id in (select customer_id from individual)
+			group by o.order_id, o.customer_id)
+			insert into newTable(customer_id, orders_no, sum)
+			select @customer_id, count(order_id), sum(s)
+			from cte
+			where cte.customer_id=@customer_id and cte.order_id<@i
+			group by cte.customer_id
+			set @i = @i +1
+			if((select max(sum) from newTable where customer_id=@customer_id)>5000) break
+		end
+	end
+set @customer_id=@customer_id+1
+end

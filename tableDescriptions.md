@@ -1072,6 +1072,7 @@ GO
 CREATE TABLE [dbo].[programs](
 	[program_id] [int] IDENTITY(1,1) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
+	[for_individual] [int] NOT NULL,
 
 CONSTRAINT [PK_programs] PRIMARY KEY CLUSTERED (
 	[program_id] ASC)
@@ -1082,6 +1083,16 @@ WITH (PAD_INDEX = OFF,
 	ALLOW_PAGE_LOCKS = ON,
 	OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[programs]
+WITH CHECK ADD
+	CONSTRAINT [CK_programs_for_individual_value]
+	CHECK (([for_individual]=(1) OR [for_individual]=(0)))
+GO
+
+ALTER TABLE [dbo].[programs]
+CHECK CONSTRAINT [CK_programs_for_individual_value]
 GO
 ```
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
@@ -1165,7 +1176,7 @@ CREATE TABLE [dbo].[reservations](
 	[customer_id] [int] NOT NULL,
 	[table_id] [int] NOT NULL,
 	[date_start_time] [datetime] NOT NULL,
-	[date_endtime] [datetime] NOT NULL,
+	[date_end_time] [datetime] NOT NULL,
 	[is_accepted] [int] NOT NULL,
 	
 CONSTRAINT [PK_reservations] PRIMARY KEY CLUSTERED(
