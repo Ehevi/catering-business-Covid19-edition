@@ -1058,7 +1058,7 @@ GO
 [:arrow_double_up:](tableDescriptions.md#opisy-tabel)
 
 ### PROGRAMS
-Tabela przechowująca dane o programach rabatowych. Rekord składa się z identyfikatora (klucza głównego) oraz opisu programu rabatowego, wyświetlanego np. w ramach informacji dla klientów.
+Tabela przechowująca dane o programach rabatowych. Rekord składa się z identyfikatora (klucza głównego) oraz opisu programu rabatowego, wyświetlanego np. w ramach informacji dla klientów. Dodatkowo znajduje się tam także pole opisujące, czy dany program rabatowy dotyczy klientów indywidualnych (`for_individual=1`), czy firmowych (`for_individual=0`).
 ```sql
 USE [u_cyra_1]
 GO
