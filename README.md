@@ -152,7 +152,7 @@ Generowanie raportów *miesięcznych* i *tygodniowych* dotyczących:
 
 :mag: menu,
 
-:mag: statystyk zamównienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
+:mag: statystyk zamówienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
 
 Generowanie "raportów" (faktury/paragonu) dotyczących zamówień + rabatów dla klientów indywidualnych oraz firm.
 
