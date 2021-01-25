@@ -8,10 +8,11 @@ begin
 			on o.customer_id=cd.customer_id
 				and o.order_date>=date_start_time
 		where program_id=1)
-	declare @item_id int=1;
+	declare @item_id int=0;
 	while(@item_id<646)
 	begin
-		if(@item_id in (select item_id from order_details od1 where order_id=@order_id))
+		set @item_id=@item_id +1;
+        if(@item_id in (select item_id from order_details od1 where order_id=@order_id))
 		update order_details
 		set item_discount=(
 			select item_price*3/cast(100 as float)
@@ -20,4 +21,5 @@ begin
 				and item_id=@item_id)
 		where order_id=@order_id
 	end
+    set @order_id=@order_id+1;
 end
