@@ -45,8 +45,6 @@
 
 :bust_in_silhouette: rezerwacja stolika przy składaniu zamówienia
 
-:bust_in_silhouette: złożenie zamówienia na owoce morza
-
 :bust_in_silhouette: opłacenie zamówienia
 
 :bust_in_silhouette: wyświetlenie listy swoich zamówień (np. w celu sprawdzenia historii/statusów płatności/zarezerwowanych stolików)
@@ -62,8 +60,6 @@
 :busts_in_silhouette: rezerwacja stolika/ów dla firmy: na firmę lub dla konkretnych pracowników firmy (imię + nazwisko)
 
 :busts_in_silhouette: złożenie zamówienia
-
-:busts_in_silhouette: złożenie zamówienia na owoce morza
 
 :busts_in_silhouette: opłacenie zamówienia
 
@@ -156,7 +152,7 @@ Generowanie raportów *miesięcznych* i *tygodniowych* dotyczących:
 
 :mag: menu,
 
-:mag: statystyk zamównienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
+:mag: statystyk zamówienia (dla klientów indywidualnych oraz firm): dotyczących kwot oraz czasu składania zamówienia
 
 Generowanie "raportów" (faktury/paragonu) dotyczących zamówień + rabatów dla klientów indywidualnych oraz firm.
 
